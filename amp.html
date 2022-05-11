@@ -1,0 +1,266 @@
+<!doctype html>
+<html ⚡4email data-css-strict>
+
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <style amp4email-boilerplate>
+        body {
+            visibility: hidden
+        }
+    </style>
+    <style amp-custom>
+        body {
+            font-size: 18px;
+            color: black;
+            font-family: 'Muli';
+        }
+
+        h1 {
+            margin: 1rem;
+        }
+
+        @media only screen and (max-width: 480px) {
+            .mobile-hidden {
+                display: none;
+            }
+
+            .responsive-td {
+                width: 100%;
+                display: block;
+                padding: 0px;
+            }
+        }
+
+        input[type="radio"] {
+            transform: scale(1.5);
+            width: 40px;
+            margin-top: 6px;
+        }
+
+        .container {
+            font-family: Muli;
+            padding: 1em;
+            text-align: center;
+        }
+
+        .m1 {
+            margin: 1em 0;
+        }
+
+        .m2 {
+            margin-right: 100px;
+            margin-left: 40px;
+        }
+
+        .m3 {
+            margin-left: 40px;
+        }
+
+        label {
+            width: 400px;
+            display: inline-block;
+            text-align: left;
+            height: 35px;
+            font-size: 18px;
+        }
+
+        .question {
+            margin: auto;
+            padding-top: 15px;
+            font-size: 22px;
+        }
+
+        .qst3 {
+            width: 600px;
+            text-align: left;
+            height: 35px;
+        }
+
+        .btnSubmit {
+            background-color: black;
+            color: white;
+            padding: 12px 30px;
+            border: 0px;
+            text-decoration: none;
+            cursor: pointer;
+            width: 120px;
+            height: 30px;
+        }
+
+        #divforlabels {
+            margin: 0px 18% 0px 25%;
+
+
+        }
+
+        .subinputbox {}
+
+        fieldset {
+            border: 0;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <table width="100%" cellspacing="0" cellpadding="0" role="presentation">
+        <tr>
+            <td align="center">
+                <amp-img
+                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/c9a545d3-44a2-4416-9a17-9b0a8764c43d.jpg"
+                    alt="" width="640" height="150"
+                    style="display: block; padding: 0px; text-align: center; border: 0px none transparent;">
+                </amp-img>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <amp-img height="762" width="640"
+                    style="display: block; padding: 0px; text-align: center;  border: 0px none transparent;"
+                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/7fa4c0fd-0b41-4666-8fc9-e65ebb6468aa.jpg">
+                </amp-img>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <amp-img height="77" width="640"
+                    style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px none transparent;"
+                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/cf83a198-a44f-4216-9ea8-7d4c8fa314d2.jpg">
+                </amp-img>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <div class="question">Did you hear about our new HD SKIN Foundation?</div>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <amp-img height="362" width="640"
+                    style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px none transparent;margin-top: 20px;"
+                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/ef9e7c6e-4ec3-482b-9846-274e4f95838c.jpg">
+                </amp-img>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <div>
+
+                    <form method="post" custom-validation-reporting="show-all-on-submit"
+                        on="submit-success: AMP.setState({'status': event.response.status, 'submitting': false}), 
+    paragraph.refresh; submit: AMP.setState({'submitting': true}); submit-error: AMP.setState({'status': event.response.status, 'submitting': false})"
+                        action-xhr="https://mc3z2jh3b-f5d8jhc0qz4lv-f-s1.pub.sfmc-content.com/jv2g5bkktkx">
+                        <div class="m1">
+                            <span class="input-error" visible-when-invalid="valueMissing" validation-for="res1">
+                                Please fill out this field.
+                            </span>
+                            <div class="inputbox"> <input class="form-control" type="radio" id="res1" data-question="1"
+                                    name="Question1" value="Q1Answer1" on="change:step2.hide" required>
+                                <label >No, I never heard of it</label>
+                            </div>
+                            <div class="inputbox"> <input class="form-control" type="radio" id="res1" data-question="1"
+                                    name="Question1" value="Q1Answer2" on="change:step2.hide">
+                                <label >Yes, and I would like to buy it</label>
+                            </div>
+                            <div class="inputbox"> <input class="form-control" type="radio" id="res1" data-question="1"
+                                    name="Question1" value="Q1Answer3" on="change:step2.hide">
+                                <label >Yes, but I am still hesitating to buy it</label>
+                            </div>
+                            <div class="inputbox"> <input class="form-control" type="radio" id="res1" data-question="1"
+                                    name="Question1" value="Q1Answer4" on="change:step2.show">
+                                <label >Yes, but I am not interested</label>
+                            </div>
+                        </div>
+                        <div class="m2" id="step2" hidden>
+                            <div id="divforlabels">
+                                <label class="subinputbox" for="res5"><input type="radio" id="res5" data-question="1"
+                                        name="SubQuestion1" value="Q1Answer4-1" required>I prefer
+                                    Ultra HD
+                                    Foundation</label><br>
+                                <label class="subinputbox" for="res6"><input type="radio" id="res6" name="SubQuestion1"
+                                        value="Q1Answer4-2">I cannot find
+                                    my
+                                    shade</label><br>
+                                <label class="subinputbox" for="res7"><input type="radio" id="res7" name="SubQuestion1"
+                                        value="Q1Answer4-3">I do not see
+                                    the
+                                    benefits for
+                                    me</label><br>
+                                <label class="subinputbox" for="res8"><input type="radio" id="res8" name="SubQuestion1"
+                                        value="Q1Answer4-4">I bought my
+                                    foundation
+                                    somewhere
+                                    else</label><br>
+                            </div>
+                        </div>
+                        <amp-img height="77" width="640"
+                            style="display: block; padding: 0px;margin-top: 20px;; text-align: center; border: 0px none transparent;"
+                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/8db4a407-cbb4-48c7-8c60-0193831fa571.jpg">
+                        </amp-img>
+                        <div class="question">What do you need to buy HD SKIN Foundation?</div>
+                        <amp-img height="362" width="640"
+                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/13905949-5d97-470c-b6a8-f730bd0c74cf.jpg"
+                            style="display: block; padding: 0px;margin-top: 20px;; text-align: center; border: 0px none transparent;margin: 20px 0px;">
+                        </amp-img>
+                        <div>
+                                <span class="input-error" visible-when-invalid="valueMissing" validation-for="res9">
+                                    Please fill out this field.
+                                </span>
+                            <label  class="qst3"><input class="form-control" type="radio" id="res9"
+                                    data-question="2" name="Q2Answer1" value="Q2Answer1" required>To
+                                know my
+                                shade</label><br>
+
+
+                            <label  class="qst3"><input class="form-control" type="radio" id="res9"
+                                    data-question="2" name="Q2Answer1" value="Q2Answer2">More
+                                information
+                                on the product (benefits, formula…)</label><br>
+
+
+                            <label  class="qst3"><input class="form-control" type="radio" id="res9"
+                                    data-question="2" name="Q2Answer1" value="Q2Answer3">Tips from our
+                                makeup artists</label><br>
+
+
+                            <label  class="qst3"><input class="form-control" type="radio" id="res9"
+                                    data-question="2" name="Q2Answer1" value="Q2Answer4">Reviews and
+                                feedbacks from customers and/or influencers</label><br>
+
+                            <label  class="qst3"><input class="form-control" type="radio" id="res9"
+                                    data-question="2" name="Q2Answer1" value="Q2Answer5">A
+                                promotional
+                                offer</label><br>
+                            <label class="qst3"
+                                style="font-size: 18px;padding-left: 32px;padding-top: 10px;line-height: normal;">You
+                                can
+                                select up to 2 answers</label>
+
+                        </div>
+                        <div style="margin-top: 20px;margin-bottom: 50px;"><input type="submit" class="btnSubmit"
+                                value="SUBMIT"></div>
+                        <div submit-success>
+                            <template type="amp-mustache">
+                                Subscription successful!
+                            </template>
+                        </div>
+                        <div submit-error>
+                            <template type="amp-mustache">
+                                Subscription failed!
+                            </template>
+                        </div>
+                    </form>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
