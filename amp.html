@@ -49,7 +49,8 @@
         }
 
         .m1 {
-            margin: 1em 0;
+                margin-top: 20px;
+    margin-bottom: 10px;
         }
 
         .m2 {
@@ -93,7 +94,7 @@
         }
 
         #divforlabels {
-            margin: 0px 18% 0px 25%;
+            margin: 0px 10% 0px 25%;
 
 
         }
@@ -103,6 +104,9 @@
         fieldset {
             border: 0;
         }
+        .input-error{
+            font-family: 'Muli';
+        }   
     </style>
 
 
@@ -153,34 +157,33 @@
                 <div>
 
                     <form method="post" custom-validation-reporting="show-all-on-submit"
-                        on="submit-success: AMP.setState({'status': event.response.status, 'submitting': false}), 
-    paragraph.refresh; submit: AMP.setState({'submitting': true}); submit-error: AMP.setState({'status': event.response.status, 'submitting': false})"
+                        on="submit-success: AMP.setState({currentPage: 'thanks'})"
                         action-xhr="https://mc3z2jh3b-f5d8jhc0qz4lv-f-s1.pub.sfmc-content.com/jv2g5bkktkx">
                         <div class="m1">
                             <span class="input-error" visible-when-invalid="valueMissing" validation-for="res1">
-                                Please fill out this field.
+                                Please select at least one answer.
                             </span>
-                            <div class="inputbox"> <input class="form-control" type="radio" id="res1" data-question="1"
-                                    name="Question1" value="Q1Answer1" on="change:step2.hide" required>
-                                <label >No, I never heard of it</label>
+                            <div class="inputbox"> 
+                                <label ><input class="form-control" type="radio" id="res1" data-question="1" name="Question1" value="Q1Answer1"
+                                    on="change:step2.hide" required>No, I never heard of it</label>
                             </div>
-                            <div class="inputbox"> <input class="form-control" type="radio" id="res1" data-question="1"
-                                    name="Question1" value="Q1Answer2" on="change:step2.hide">
-                                <label >Yes, and I would like to buy it</label>
+                            <div class="inputbox"> 
+                                <label ><input class="form-control" type="radio" id="res1" data-question="1" name="Question1" value="Q1Answer2"
+                                    on="change:step2.hide">Yes, and I would like to buy it</label>
                             </div>
-                            <div class="inputbox"> <input class="form-control" type="radio" id="res1" data-question="1"
-                                    name="Question1" value="Q1Answer3" on="change:step2.hide">
-                                <label >Yes, but I am still hesitating to buy it</label>
+                            <div class="inputbox"> 
+                                <label ><input class="form-control" type="radio" id="res1" data-question="1" name="Question1" value="Q1Answer3"
+                                    on="change:step2.hide">Yes, but I am still hesitating to buy it</label>
                             </div>
-                            <div class="inputbox"> <input class="form-control" type="radio" id="res1" data-question="1"
-                                    name="Question1" value="Q1Answer4" on="change:step2.show">
-                                <label >Yes, but I am not interested</label>
+                            <div class="inputbox"> 
+                                <label ><input class="form-control" type="radio" id="res1" data-question="1" name="Question1" value="Q1Answer4"
+                                    on="change:step2.show">Yes, but I am not interested</label>
                             </div>
                         </div>
                         <div class="m2" id="step2" hidden>
                             <div id="divforlabels">
                                 <label class="subinputbox" for="res5"><input type="radio" id="res5" data-question="1"
-                                        name="SubQuestion1" value="Q1Answer4-1" required>I prefer
+                                        name="SubQuestion1" value="Q1Answer4-1">I prefer
                                     Ultra HD
                                     Foundation</label><br>
                                 <label class="subinputbox" for="res6"><input type="radio" id="res6" name="SubQuestion1"
@@ -209,9 +212,9 @@
                             style="display: block; padding: 0px;margin-top: 20px;; text-align: center; border: 0px none transparent;margin: 20px 0px;">
                         </amp-img>
                         <div>
-                                <span class="input-error" visible-when-invalid="valueMissing" validation-for="res9">
-                                    Please fill out this field.
-                                </span>
+                                <div><span class="input-error" visible-when-invalid="valueMissing" validation-for="res9">
+                                    Please select at least one answer.
+                                </span></div>
                             <label  class="qst3"><input class="form-control" type="radio" id="res9"
                                     data-question="2" name="Q2Answer1" value="Q2Answer1" required>To
                                 know my
@@ -243,8 +246,7 @@
                                 select up to 2 answers</label>
 
                         </div>
-                        <div style="margin-top: 20px;margin-bottom: 50px;"><input type="submit" class="btnSubmit"
-                                value="SUBMIT"></div>
+                        <div style="margin-top: 20px;margin-bottom: 50px;"><input type="submit" class="btnSubmit" value="SUBMIT"></div>
                         <div submit-success>
                             <template type="amp-mustache">
                                 Subscription successful!
