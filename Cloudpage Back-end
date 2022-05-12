@@ -49,27 +49,6 @@
                    i = i + rows;
                }
            }
-       
- //            var request = api.createItem('DataExtensionObject', {
- //                Name: "HDSKIN_CONTACT_QUESTION_ANSWER_1",
- //                Properties: [{
- //  "Name": "ContactKey",
- //  "Value": "John"
- // },
- // {
- //  "Name": "QID",
- //  "Value": "Smith"
- // },
- // {
- //  "Name": "AID",
- //  "Value": "john.smith@mail.com"
- // },                          
- // {
- //  "Name": "Content",
- //  "Value": Stringify(form)
- // }]
- // 
- //            });
 
             if(i > 0) {
             
