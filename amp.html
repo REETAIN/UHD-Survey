@@ -1,3 +1,8 @@
+%%[
+set @subscriberKey = AttributeValue("ContactKey")
+
+]%%
+
 <!doctype html>
 <html ⚡4email data-css-strict>
 
@@ -8,13 +13,62 @@
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
     <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-    <style amp4email-boilerplate>
+ 	<style amp4email-boilerplate>
         body {
             visibility: hidden
         }
     </style>
     <style amp-custom>
+       
         body {
+            color: #000000;
+            font-family: 'Muli';
+            margin: 0px auto;
+            max-width: 1280px;
+            /* background-color: #000000; */
+            font-size: 22px;
+            font-weight: 400;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            padding: 0px;
+        }
+
+        .imagethankyou {
+            width: 100%;
+            height:450px;
+            object-fit: cover;
+            object-position: 100% 15%;
+            padding-top: 10px;
+            margin: auto;
+            display: block;
+            text-align: center;
+        }
+
+        .container {
+            margin: 30px auto;
+            width: 50%;
+            align-items: center;
+            height: auto;
+        }
+
+        .firstdiv {
+            font-family: 'Muli';
+            margin-top: 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .seconddiv {
+            font-family: 'Muli';
+            margin-top: 30px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+       
+       body {
             font-size: 18px;
             color: black;
             font-family: 'Muli';
@@ -85,12 +139,16 @@
         .btnSubmit {
             background-color: black;
             color: white;
-            padding: 12px 30px;
+            /*padding: 12px 30px;*/
             border: 0px;
             text-decoration: none;
             cursor: pointer;
             width: 120px;
             height: 30px;
+        }
+
+        .successDisplay{
+            display: none;
         }
 
         #divforlabels {
@@ -106,17 +164,65 @@
         }
         .input-error{
             font-family: 'Muli';
-        }   
+        }
+        .sample-selector:not([disabled]) amp-img[option][selected]:not([disabled]) {
+  outline-color: var(--color-primary);
+  outline-width: 4px;
+}
+.sample-selector amp-img,
+.sample-selector .divider {
+  margin-right: var(--space-2);
+}
+/* disables build-in browser highlights */
+.sample-selector *:focus {
+  outline: none;
+}
+.sample-selector[disabled],
+.sample-selector [disabled] {
+  opacity: 0.5;
+}
+.sample-selector .divider {
+  border-right: 2px solid var(--color-primary);
+  height: 60px;
+}
+.radio-selector [option] {
+  display: flex;
+  align-items: center;
+}
+.sample-selector,
+.radio-selector,
+.sample-selector ~ div,
+.radio-selector ~ div {
+  padding: var(--space-2);
+}
+.sample-selector ~ button,
+.radio-selector ~ button {
+  margin: var(--space-2);
+}
+
+amp-selector [option][selected] {
+     outline: none;
+}
+
+#res1,#res2,#res3,#res4,#res5 {
+     outline: none;
+}
+
+amp-selector [option][selected] {
+     outline: none;
+}
     </style>
 
 
 </head>
 
 <body>
+      
+
     <table width="100%" cellspacing="0" cellpadding="0" role="presentation">
         <tr>
-            <td align="center">
-                <amp-img
+            <td [class]="currentPage" align="center">
+                <amp-img 
                     src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/c9a545d3-44a2-4416-9a17-9b0a8764c43d.jpg"
                     alt="" width="640" height="150"
                     style="display: block; padding: 0px; text-align: center; border: 0px none transparent;">
@@ -124,7 +230,7 @@
             </td>
         </tr>
         <tr>
-            <td align="center">
+            <td [class]="currentPage" align="center">
                 <amp-img height="762" width="640"
                     style="display: block; padding: 0px; text-align: center;  border: 0px none transparent;"
                     src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/7fa4c0fd-0b41-4666-8fc9-e65ebb6468aa.jpg">
@@ -132,7 +238,7 @@
             </td>
         </tr>
         <tr>
-            <td align="center">
+            <td [class]="currentPage" align="center">
                 <amp-img height="77" width="640"
                     style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px none transparent;"
                     src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/cf83a198-a44f-4216-9ea8-7d4c8fa314d2.jpg">
@@ -140,12 +246,12 @@
             </td>
         </tr>
         <tr>
-            <td align="center">
+            <td [class]="currentPage" align="center">
                 <div class="question">Did you hear about our new HD SKIN Foundation?</div>
             </td>
         </tr>
         <tr>
-            <td align="center">
+            <td [class]="currentPage" align="center">
                 <amp-img height="362" width="640"
                     style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px none transparent;margin-top: 20px;"
                     src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/ef9e7c6e-4ec3-482b-9846-274e4f95838c.jpg">
@@ -157,12 +263,15 @@
                 <div>
 
                     <form method="post" custom-validation-reporting="show-all-on-submit"
-                        on="submit-success: AMP.setState({currentPage: 'thanks'})"
+                        on="submit-success: AMP.setState({currentPage: 'successDisplay'})"
                         action-xhr="https://mc3z2jh3b-f5d8jhc0qz4lv-f-s1.pub.sfmc-content.com/jv2g5bkktkx">
-                        <div class="m1">
+                        <div [class]="currentPage" class="m1">
                             <span class="input-error" visible-when-invalid="valueMissing" validation-for="res1">
                                 Please select at least one answer.
                             </span>
+                          <input name="ContactKey" type="hidden"
+        value="%%=v(@subscriberKey)=%%">
+                          
                             <div class="inputbox"> 
                                 <label ><input class="form-control" type="radio" id="res1" data-question="1" name="Question1" value="Q1Answer1"
                                     on="change:step2.hide" required>No, I never heard of it</label>
@@ -180,7 +289,7 @@
                                     on="change:step2.show">Yes, but I am not interested</label>
                             </div>
                         </div>
-                        <div class="m2" id="step2" hidden>
+                        <div [class]="currentPage" class="m2" id="step2" hidden>
                             <div id="divforlabels">
                                 <label class="subinputbox" for="res5"><input type="radio" id="res5" data-question="1"
                                         name="SubQuestion1" value="Q1Answer4-1">I prefer
@@ -202,67 +311,151 @@
                                     else</label><br>
                             </div>
                         </div>
+                        <div [class]="currentPage">
                         <amp-img height="77" width="640"
                             style="display: block; padding: 0px;margin-top: 20px;; text-align: center; border: 0px none transparent;"
                             src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/8db4a407-cbb4-48c7-8c60-0193831fa571.jpg">
                         </amp-img>
-                        <div class="question">What do you need to buy HD SKIN Foundation?</div>
+                        </div>
+                        <div [class]="currentPage" class="question">What do you need to buy HD SKIN Foundation?</div>
+                        <div [class]="currentPage">
                         <amp-img height="362" width="640"
                             src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/13905949-5d97-470c-b6a8-f730bd0c74cf.jpg"
                             style="display: block; padding: 0px;margin-top: 20px;; text-align: center; border: 0px none transparent;margin: 20px 0px;">
                         </amp-img>
-                        <div>
+                        </div>
+                        <div [class]="currentPage">
                                 <div><span class="input-error" visible-when-invalid="valueMissing" validation-for="res9">
                                     Please select at least one answer.
                                 </span></div>
-                            <label  class="qst3"><input class="form-control" type="radio" id="res9"
-                                    data-question="2" name="Q2Answer1" value="Q2Answer1" required>To
+
+                        <amp-selector layout="container" name="Question2" multiple>
+                            <label  class="qst3 customInput"><input class="form-control" type="radio" id="res1"
+                                    data-question="2" option="Q2Answer1" >To
                                 know my
                                 shade</label><br>
 
 
-                            <label  class="qst3"><input class="form-control" type="radio" id="res9"
-                                    data-question="2" name="Q2Answer1" value="Q2Answer2">More
+                            <label  class="qst3 customInput"><input class="form-control" type="radio" id="res2"
+                                    data-question="2" option="Q2Answer2">More
                                 information
                                 on the product (benefits, formula…)</label><br>
 
 
-                            <label  class="qst3"><input class="form-control" type="radio" id="res9"
-                                    data-question="2" name="Q2Answer1" value="Q2Answer3">Tips from our
+                            <label  class="qst3 customInput"><input class="form-control" type="radio" id="res3"
+                                    data-question="2" option="Q2Answer3">Tips from our
                                 makeup artists</label><br>
 
 
-                            <label  class="qst3"><input class="form-control" type="radio" id="res9"
-                                    data-question="2" name="Q2Answer1" value="Q2Answer4">Reviews and
+                            <label  class="qst3 customInput"><input class="form-control" type="radio" id="res4"
+                                    data-question="2" option="Q2Answer4">Reviews and
                                 feedbacks from customers and/or influencers</label><br>
 
-                            <label  class="qst3"><input class="form-control" type="radio" id="res9"
-                                    data-question="2" name="Q2Answer1" value="Q2Answer5">A
+                            <label  class="qst3 customInput"><input class="form-control" type="radio" id="res5"
+                                    data-question="2" option="Q2Answer5">A
                                 promotional
                                 offer</label><br>
                             <label class="qst3"
                                 style="font-size: 18px;padding-left: 32px;padding-top: 10px;line-height: normal;">You
                                 can
                                 select up to 2 answers</label>
+                            </amp-selector>
 
                         </div>
-                        <div style="margin-top: 20px;margin-bottom: 50px;"><input type="submit" class="btnSubmit" value="SUBMIT"></div>
-                        <div submit-success>
+
+                        <div [class]="currentPage" style="margin-top: 20px;margin-bottom: 50px;"><input type="submit" class="btnSubmit" value="SUBMIT"></div>
+                     
+                         <div submit-success>
                             <template type="amp-mustache">
-                                Subscription successful!
+                                <div class="container">
+                                    <div class="imagediv"><amp-img alt="thank you" width="512" height="582" src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/ebd0ddde-f7d0-4a88-81b6-e3c2b1d5ff76.jpg"
+                                            class="imagethankyou">
+                                            </amp-img>
+                                        </div>
+                                    <div class="firstdiv"><span>Thank you for your answers!</span><br>
+                                        <span>We take them into account and we will come back to you very soon with a surprise…</span>
+                                    </div>
+                                    <div class="seconddiv"><span>To discover our latest news and offers, click <a
+                                                style="text-decoration: none;cursor: pointer;font-family: muli;color: black;"
+                                                href="https://www.makeupforever.com"><u>here.</u></a></span></div>
+                                </div>
                             </template>
                         </div>
                         <div submit-error>
                             <template type="amp-mustache">
-                                Subscription failed!
+                                Please verify your answers
                             </template>
                         </div>
                     </form>
                 </div>
             </td>
         </tr>
+        <table width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#171717" align="center">
+            <tr>
+                <td><a href="https://www.makeupforever.com/eu/en/terms.html**TRACKING**" target="_blank">
+                        <amp-img
+                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/33f71d2e-67da-45f8-af77-527f496c95cf.jpg"
+                                 width="159" height="84" style="border: 0;" alt="Paiement"></amp-img>
+                    </a></td>
+
+                <td><a href="https://www.makeupforever.com/eu/en/terms.html**TRACKING**" target="_blank">
+                        <amp-img
+                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/0a182dde-2e63-4718-a1c5-28d29e84da7b.jpg"
+                            width="161" height="84" style="border: 0;" alt="échantillons">
+                    </a></td>
+
+                <td><a href="https://www.makeupforever.com/eu/en/terms.html**TRACKING**" target="_blank">
+                        <amp-img
+                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/6c0bd053-8397-4003-91da-4f2c0170deaf.jpg"
+                                 width="162" height="84" style="border: 0;" alt="échantillons"></amp-img>
+                    </a></td>
+
+                <td><a href="https://www.makeupforever.com/eu/en/contact**TRACKING**" target="_blank">
+                        <amp-img
+                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/cf27156a-7798-44bb-8d22-c35afa586a13.jpg"
+                            width="158" height="84" style="border: 0;" alt="contacter nous*
+        ">
+                    </a></td>
+            </tr>
+        </table>
+
+        <table width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#171717" align="center">
+            <tr>
+                <td width="65" align="center"><a href="https://www.instagram.com/makeupforever/" target="_blank">
+                        <amp-img
+                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/68a31fcd-c424-4d47-b8a8-3ddf677d1d21.jpg"
+                                 width="360" height="51" style="border: 0;" alt="instagram"></amp-img>
+                    </a></td>
+
+                <td width="65" align="center"><a href="https://www.facebook.com/makeupforeverfrance" target="_blank">
+                        <amp-img
+                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/d0a27e8f-9deb-42eb-ba5b-73045b58f2c8.jpg"
+                            width="23" height="51" style="border: 0;" alt="Youtube">
+                    </a></td>
+
+                <td width="65" align="center"><a href="https://www.tiktok.com/@makeupforever?lang=fr" target="_blank">
+                        <amp-img
+                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/f1b3c440-3fba-4faf-9ca5-d861749c32e0.jpg"
+                                 width="32" height="51" style="border: 0;" alt="Facebook"></amp-img>
+                    </a></td>
+
+                <td width="65" align="center"><a href="https://www.youtube.com/makeupforever" target="_blank">
+                        <amp-img
+                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/f9e22b83-9140-4fcb-93af-2850cf57fefe.jpg"
+                                 width="225" height="51" style="border: 0;" alt="Facebook"></amp-img>
+                    </a></td>
+            </tr>
+        </table>
     </table>
+ 
 
 </body>
 
 </html>
+
+
+
+
+
+
+
