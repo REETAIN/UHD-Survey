@@ -2,7 +2,7 @@
 set @subscriberKey = AttributeValue("ContactKey")
 
 ]%%
-
+<!-- {{={< >}=}} -->
 <!doctype html>
 <html ⚡4email data-css-strict>
 
@@ -330,28 +330,33 @@ amp-selector [option][selected] {
                                 </span></div>
 
                         <amp-selector layout="container" name="Question2" multiple>
-                            <label  class="qst3 customInput"><input class="form-control" type="radio" id="res1"
+                            <label  class="qst3 customInput"><input style="display:none;width:100%" on="change:AMP.setState({checkStatusQ2A1: event.checked})" class="form-control" type="checkbox" id="res1"
+                                    data-question="2" option="Q2Answer1" ><input [checked]="checkStatusQ2A1" on="change:AMP.setState({checkStatusQ2A1: event.checked})" class="form-control" type="radio" id="res1"
                                     data-question="2" option="Q2Answer1" >To
                                 know my
                                 shade</label><br>
 
 
-                            <label  class="qst3 customInput"><input class="form-control" type="radio" id="res2"
+                            <label  class="qst3 customInput"><input style="display:none;width:100%" on="change:AMP.setState({checkStatusQ2A2: event.checked})" class="form-control" type="checkbox" id="res2"
+                                    data-question="2" option="Q2Answer2"><input [checked]="checkStatusQ2A2" on="change:AMP.setState({checkStatusQ2A2: event.checked})" class="form-control" type="radio" id="res2"
                                     data-question="2" option="Q2Answer2">More
                                 information
                                 on the product (benefits, formula…)</label><br>
 
 
-                            <label  class="qst3 customInput"><input class="form-control" type="radio" id="res3"
+                            <label  class="qst3 customInput"><input style="display:none;width:100%"  on="change:AMP.setState({checkStatusQ2A3: event.checked})" class="form-control" type="checkbox" id="res3"
+                                    data-question="2" option="Q2Answer3"><input [checked]="checkStatusQ2A3" " class="form-control" type="radio" id="res3"
                                     data-question="2" option="Q2Answer3">Tips from our
                                 makeup artists</label><br>
 
 
-                            <label  class="qst3 customInput"><input class="form-control" type="radio" id="res4"
+                            <label  class="qst3 customInput"><input style="display:none;width:100%"  on="change:AMP.setState({checkStatusQ2A4: event.checked})" class="form-control" type="checkbox" id="res4"
+                                    data-question="2" option="Q2Answer4"><input [checked]="checkStatusQ2A4" class="form-control" type="radio" id="res4"
                                     data-question="2" option="Q2Answer4">Reviews and
                                 feedbacks from customers and/or influencers</label><br>
 
-                            <label  class="qst3 customInput"><input class="form-control" type="radio" id="res5"
+                            <label  class="qst3 customInput"><input style="display:none;width:100%" on="change:AMP.setState({checkStatusQ2A5: event.checked})" class="form-control" type="checkbox" id="res5"
+                                    data-question="2" option="Q2Answer5"><input [checked]="checkStatusQ2A5" class="form-control" type="radio" id="res5"
                                     data-question="2" option="Q2Answer5">A
                                 promotional
                                 offer</label><br>
