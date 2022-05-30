@@ -416,7 +416,6 @@ ENDIF
       line-height: normal !important;
       letter-spacing: normal !important;
       color: #c8102e !important;
-      margin-left: 50px;
     }
 
     .block-hide {
@@ -552,7 +551,7 @@ ENDIF
                 <td class="space">&nbsp;&nbsp;</td>
                 <td>
                   <table>
-                    <div><label class="invalid-feedback question1Error block-hide">
+                    <div style="margin-left: 40px;"><label class="invalid-feedback question1Error block-hide">
                         %%=v(@ErrorMsg)=%%
                       </label></div>
                     <tr>
@@ -662,14 +661,14 @@ ENDIF
               src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/13905949-5d97-470c-b6a8-f730bd0c74cf.jpg"
               style="display: block; padding: 0px;margin-top: 20px;; text-align: center; height: auto; width: 100%; border: 0px none transparent;margin: 20px 0px;">
 
-            <div class="invalid-feedback question2Error block-hide">
-              %%=v(@ErrorMsg)=%%
-            </div>
+            
             <div class="m3 controls" style="margin-top: 35px;margin-bottom: 35px;">
               <table width="100%">
                 <tr>
                   <td>&nbsp;&nbsp;</td>
                   <td>
+                    <div><label>%%=v(@ErrorMsg)=%%</label>
+                    </div>
                     <table width="100%">
                       <tr>
                         <td><input class="form-control" type="radio" id="res9" data-question="2" name="Q2Answer1" value="Q2Answer1"></td>
