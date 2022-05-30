@@ -1,4 +1,3 @@
-
 <script runat="server">
   Platform.Load("core", "1.1");
   // initialisation des variables //
@@ -492,8 +491,8 @@ ENDIF
       height: 100%;
     }
 
-    .loading{
-        display:none;
+    .loading {
+      display: none;
     }
   </style>
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
@@ -536,9 +535,7 @@ ENDIF
           <img height="362"
             style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px none transparent;margin-top: 20px;"
             src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/ef9e7c6e-4ec3-482b-9846-274e4f95838c.jpg">
-          <div class="invalid-feedback question1Error block-hide">
-            %%=v(@ErrorMsg)=%%
-          </div>
+          
         </div>
         <form id="validationForm" class="needs-validation" onsubmit="event.preventDefault();" novalidate>
           <div class="m1 controls" style="margin-top: 35px;margin-bottom: 10px;width: 100%;margin-left: 0px;">
@@ -566,6 +563,9 @@ ENDIF
                   onclick="document.getElementById('step2').style.display='block';">
                 %%=v(@Q1Answer4)=%%</label>
             </div>
+            <div class="invalid-feedback question1Error block-hide">
+              %%=v(@ErrorMsg)=%%
+            </div>
           </div>
           <div class="m2 controls" id="step2" style="width: 100%;margin-left: 0px;margin-bottom: 35px;">
             <div id="divforlabels">
@@ -589,7 +589,7 @@ ENDIF
             <img height="362"
               src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/13905949-5d97-470c-b6a8-f730bd0c74cf.jpg"
               style="display: block; padding: 0px;margin-top: 20px;; text-align: center; height: auto; width: 100%; border: 0px none transparent;margin: 20px 0px;">
-            
+
             <div class="invalid-feedback question2Error block-hide">
               %%=v(@ErrorMsg)=%%
             </div>
@@ -628,75 +628,75 @@ ENDIF
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
       <script>
 
-        function getErrorStatus(elt){
+        function getErrorStatus(elt) {
           var checkedQ2 = $(':radio[data-question="2"]:checked').length;
           var checkedQ1A1 = $(':radio[value="Q1Answer1"]:checked').length;
           var checkedQ1A4 = $(':radio[value="Q1Answer4"]:checked').length;
           var checkedQ1A4Sub = $(':radio[name="SubQuestion1"]:checked').length;
           var checkedQ1 = $(':radio[data-question="1"]:checked').length;
-          var status = {code: false, question:''};
-        
-        if(elt == 1){
-            if ((checkedQ1 == 0 || (checkedQ1A4 == 1 && checkedQ1A4Sub == 0))){
-                status.code = true;
-                status.question = 1;
-                return status;
-            }else{
-                status.code = false;
-                status.question = 1;
-                return status;
-            }
-        }
+          var status = { code: false, question: '' };
 
-        if(elt == 2){
-            if(checkedQ2 == 0 && (checkedQ1A1 == 0 && checkedQ1A4 == 0 || (checkedQ1A4 == 1 && checkedQ1A4Sub == 0))){
-                status.code = true;
-                status.question = 2;
-                return status;
-            }else{
-                status.code = false;
-                status.question = 2;
-                return status;
-            }
-        }
-
-        if((checkedQ1 == 0 || (checkedQ1A4 == 1 && checkedQ1A4Sub == 0)) && checkedQ2 == 0){
-                status.code = true;
-                status.question = 0;
-                return status;
-          }else if ((checkedQ1 == 0 || (checkedQ1A4 == 1 && checkedQ1A4Sub == 0))){
-                status.code = true;
-                status.question = 1;
-                return status;
-          }else if(checkedQ2 == 0 && (checkedQ1A1 == 0 && checkedQ1A4 == 0 || (checkedQ1A4 == 1 && checkedQ1A4Sub == 0))){
-                status.code = true;
-                status.question = 2;
-                return status;
-          }else{
-              status.code = false;
+          if (elt == 1) {
+            if ((checkedQ1 == 0 || (checkedQ1A4 == 1 && checkedQ1A4Sub == 0))) {
+              status.code = true;
+              status.question = 1;
               return status;
+            } else {
+              status.code = false;
+              status.question = 1;
+              return status;
+            }
+          }
+
+          if (elt == 2) {
+            if (checkedQ2 == 0 && (checkedQ1A1 == 0 && checkedQ1A4 == 0 || (checkedQ1A4 == 1 && checkedQ1A4Sub == 0))) {
+              status.code = true;
+              status.question = 2;
+              return status;
+            } else {
+              status.code = false;
+              status.question = 2;
+              return status;
+            }
+          }
+
+          if ((checkedQ1 == 0 || (checkedQ1A4 == 1 && checkedQ1A4Sub == 0)) && checkedQ2 == 0) {
+            status.code = true;
+            status.question = 0;
+            return status;
+          } else if ((checkedQ1 == 0 || (checkedQ1A4 == 1 && checkedQ1A4Sub == 0))) {
+            status.code = true;
+            status.question = 1;
+            return status;
+          } else if (checkedQ2 == 0 && (checkedQ1A1 == 0 && checkedQ1A4 == 0 || (checkedQ1A4 == 1 && checkedQ1A4Sub == 0))) {
+            status.code = true;
+            status.question = 2;
+            return status;
+          } else {
+            status.code = false;
+            return status;
           }
         }
 
-        function question4Unchecked(){
-            var checkedQ1A4 = $(':radio[value="Q1Answer4"]:checked').length;
-            if(checkedQ1A4 == 0){
-                var elt = $('#step2 input:checked');
-                elt.prop('checked', false);
-            }
+        function question4Unchecked() {
+          var checkedQ1A4 = $(':radio[value="Q1Answer4"]:checked').length;
+          if (checkedQ1A4 == 0) {
+            var elt = $('#step2 input:checked');
+            elt.prop('checked', false);
+          }
         }
 
-        function reviewError(elt){
+        function reviewError(elt) {
           var questionId = elt.target.getAttribute("data-question");
           var error = getErrorStatus(questionId);
           var errorStatus = error.code;
           var errorQuestion = error.question;
-          if(!errorStatus){
-              if(errorQuestion == 1){
-                hideErrorMessage(errorQuestion);
-              }else if(errorQuestion == 2){
-                hideErrorMessage(errorQuestion);
-              }
+          if (!errorStatus) {
+            if (errorQuestion == 1) {
+              hideErrorMessage(errorQuestion);
+            } else if (errorQuestion == 2) {
+              hideErrorMessage(errorQuestion);
+            }
           }
         }
 
@@ -737,8 +737,8 @@ ENDIF
           elt.prop('checked', false);
         }
 
-        function finishLoading(){
-            if($('body').hasClass('loading')){$('body').removeClass('loading')};
+        function finishLoading() {
+          if ($('body').hasClass('loading')) { $('body').removeClass('loading') };
         }
 
         //main
@@ -767,29 +767,29 @@ ENDIF
         });
 
         function displayErrorMessage(questionId) {
-            if(questionId == 1){
-                $('.invalid-feedback.question1Error').addClass('block-show');
-                $('.invalid-feedback.question1Error').removeClass('block-hide');
-            }else if(questionId == 2){
-                $('.invalid-feedback.question2Error').addClass('block-show');
-                $('.invalid-feedback.question2Error').removeClass('block-hide');
-            }else{
-                $('.invalid-feedback').addClass('block-show');
-                $('.invalid-feedback').removeClass('block-hide');
-            }
+          if (questionId == 1) {
+            $('.invalid-feedback.question1Error').addClass('block-show');
+            $('.invalid-feedback.question1Error').removeClass('block-hide');
+          } else if (questionId == 2) {
+            $('.invalid-feedback.question2Error').addClass('block-show');
+            $('.invalid-feedback.question2Error').removeClass('block-hide');
+          } else {
+            $('.invalid-feedback').addClass('block-show');
+            $('.invalid-feedback').removeClass('block-hide');
+          }
         }
 
         function hideErrorMessage(questionId) {
-            if(questionId == 1){
-                $('.invalid-feedback.question1Error').addClass('block-hide');
-                $('.invalid-feedback.question1Error').removeClass('block-show');
-            }else if(questionId == 2){
-                $('.invalid-feedback.question2Error').addClass('block-hide');
-                $('.invalid-feedback.question2Error').removeClass('block-show');
-            }else{
-                $('.invalid-feedback').addClass('block-hide');
-                $('.invalid-feedback').removeClass('block-show');
-            }
+          if (questionId == 1) {
+            $('.invalid-feedback.question1Error').addClass('block-hide');
+            $('.invalid-feedback.question1Error').removeClass('block-show');
+          } else if (questionId == 2) {
+            $('.invalid-feedback.question2Error').addClass('block-hide');
+            $('.invalid-feedback.question2Error').removeClass('block-show');
+          } else {
+            $('.invalid-feedback').addClass('block-hide');
+            $('.invalid-feedback').removeClass('block-show');
+          }
         }
 
         function selectCheckedAnswers() {
