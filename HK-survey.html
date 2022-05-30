@@ -390,7 +390,7 @@ ENDIF
     .m3 {}
 
     label {
-      width: 400px;
+      width: 100%;
       display: inline-block;
       text-align: left;
       height: 35px;
@@ -539,33 +539,67 @@ ENDIF
         </div>
         <form id="validationForm" class="needs-validation" onsubmit="event.preventDefault();" novalidate>
           <div class="m1 controls" style="margin-top: 35px;margin-bottom: 10px;width: 100%;margin-left: 0px;">
-            <div>
-              <label class="inputbox" for="res1">
-                <input class="form-control" type="radio" id="res1" data-question="1" name="Question1" value="Q1Answer1"
-                  onclick="document.getElementById('step2').style.display='none';">
-                %%=v(@Q1Answer1)=%%</label>
-            </div>
-            <div>
-              <label class="inputbox" for="res2">
-                <input type="radio" class="form-control" id="res2" data-question="1" name="Question1" value="Q1Answer2"
-                  onclick="document.getElementById('step2').style.display='none';">
-                %%=v(@Q1Answer2)=%%</label>
-            </div>
-            <div>
-              <label class="inputbox" for="res3">
-                <input type="radio" class="form-control" id="res3" data-question="1" name="Question1" value="Q1Answer3"
-                  onclick="document.getElementById('step2').style.display='none';">
-                %%=v(@Q1Answer3)=%%</label>
-            </div>
-            <div>
-              <label class="inputbox" for="res4">
-                <input type="radio" class="form-control" id="res4" data-question="1" name="Question1" value="Q1Answer4"
-                  onclick="document.getElementById('step2').style.display='block';">
-                %%=v(@Q1Answer4)=%%</label>
-            </div>
-            <div class="invalid-feedback question1Error block-hide">
-              %%=v(@ErrorMsg)=%%
-            </div>
+            <table>
+              <tr>
+                <td>&nbsp;&nbsp;</td>
+                <td>
+                  <table>
+                    <tr>
+                      <td>
+                        
+                          <input class="form-control" type="radio" id="res1" data-question="1" name="Question1" value="Q1Answer1"
+                            onclick="document.getElementById('step2').style.display='none';">
+                          
+                      </td>
+                      <td>
+                        <label class="inputbox" for="res1">
+                          %%=v(@Q1Answer1)=%%
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <input type="radio" class="form-control" id="res2" data-question="1" name="Question1" value="Q1Answer2"
+                            onclick="document.getElementById('step2').style.display='none';">
+                      </td>
+                      <td>
+                        <label class="inputbox" for="res2">
+                          %%=v(@Q1Answer2)=%%
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                    <input type="radio" class="form-control" id="res3" data-question="1" name="Question1" value="Q1Answer3"
+                      onclick="document.getElementById('step2').style.display='none';">
+                      </td>
+                      <td>
+                    <label class="inputbox" for="res3">%%=v(@Q1Answer3)=%%</label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                    <input type="radio" class="form-control" id="res4" data-question="1" name="Question1" value="Q1Answer4"
+                      onclick="document.getElementById('step2').style.display='block';">
+                      </td>
+                      <td>
+                    <label class="inputbox" for="res4">
+                      %%=v(@Q1Answer4)=%%
+                    </label>
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+                <tr>
+                  <td>
+                      <div class="invalid-feedback question1Error block-hide">
+                        %%=v(@ErrorMsg)=%%
+                      </div>
+                  </td>
+                </tr>
+              </tr>
+            </table>
           </div>
           <div class="m2 controls" id="step2" style="width: 100%;margin-left: 0px;margin-bottom: 35px;">
             <div id="divforlabels">
