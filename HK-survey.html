@@ -546,14 +546,15 @@ ENDIF
         </div>
         <form id="validationForm" class="needs-validation" onsubmit="event.preventDefault();" novalidate>
           <div class="m1 controls" style="margin-top: 35px;margin-bottom: 10px;width: 100%;margin-left: 0px;">
+            <div style="width: 100%; text-align: center;"><label class="invalid-feedback question1Error block-hide">
+                %%=v(@ErrorMsg)=%%
+              </label></div>
             <table>
               <tr>
                 <td class="space">&nbsp;&nbsp;</td>
                 <td>
                   <table>
-                    <div style="margin-left: 40px;"><label class="invalid-feedback question1Error block-hide">
-                        %%=v(@ErrorMsg)=%%
-                      </label></div>
+                    
                     <tr>
                       <td>
                         
