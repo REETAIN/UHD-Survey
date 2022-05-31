@@ -262,6 +262,7 @@ ENDIF
         font-size: 18px !important;
         margin-top: 5px !important;
         margin-bottom: 5px !important;
+        text-align: left !important;
       }
     }
 
@@ -319,6 +320,7 @@ ENDIF
         margin-top: 5px !important;
         margin-bottom: 5px !important;
             margin-left: 40px !important;
+            text-align: left !important;
       }
 
 
@@ -548,7 +550,7 @@ ENDIF
         </div>
         <form id="validationForm" class="needs-validation" onsubmit="event.preventDefault();" novalidate>
           <div class="m1 controls" style="margin-top: 35px;margin-bottom: 10px;width: 100%;margin-left: 0px;">
-            <div style="width: 50%;margin: auto; "><label class="invalid-feedback question1Error block-hide">
+            <div><label class="invalid-feedback question1Error block-hide">
                 %%=v(@ErrorMsg1)=%%
               </label></div>
             <table>
@@ -726,6 +728,7 @@ ENDIF
 
             <div style="margin-top: 20px;margin-bottom: 50px;"><input type="submit" class="btnSubmit"
                 value="%%=v(@submitLabel)=%%"></div>
+          </div>
         </form>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
