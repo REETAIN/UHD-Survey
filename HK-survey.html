@@ -17,6 +17,7 @@ set @row = row(@Q1rows, 1)
 set @question1Label = field(@row,"Label")
 set @question1LabelImage = field(@row,"LabelImage")
 set @HeroImage = field(@row,"HeroImage")
+set @ErrorMsg1 = field(@row,"ErrorMsg")
 ENDIF
 
 set @Q2rows = LookupRows('HDSKIN_QUESTIONS_1','QID', @QUESTION2ID, 'LangageCode', @LangageCode)
@@ -548,7 +549,7 @@ ENDIF
         <form id="validationForm" class="needs-validation" onsubmit="event.preventDefault();" novalidate>
           <div class="m1 controls" style="margin-top: 35px;margin-bottom: 10px;width: 100%;margin-left: 0px;">
             <div style="width: 50%;margin: auto; "><label class="invalid-feedback question1Error block-hide">
-                %%=v(@ErrorMsg)=%%
+                %%=v(@ErrorMsg1)=%%
               </label></div>
             <table>
               <tr>
