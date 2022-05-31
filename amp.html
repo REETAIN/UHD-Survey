@@ -1,6 +1,5 @@
 %%[
-set @subscriberKey = AttributeValue("ContactKey")
-
+set @subscriberKey = AttributeValue("_subscriberkey")
 ]%%
 <!-- {{={< >}=}} -->
 <!doctype html>
@@ -9,22 +8,20 @@ set @subscriberKey = AttributeValue("ContactKey")
 <head>
     <meta charset="utf-8">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
     <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
-    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
- 	<style amp4email-boilerplate>
+    <style amp4email-boilerplate>
         body {
             visibility: hidden
         }
     </style>
     <style amp-custom>
-       
         body {
             color: #000000;
             font-family: 'Muli';
-            margin: 0px auto;
-            max-width: 1280px;
+            margin: auto;
             /* background-color: #000000; */
             font-size: 22px;
             font-weight: 400;
@@ -35,11 +32,42 @@ set @subscriberKey = AttributeValue("ContactKey")
             padding: 0px;
         }
 
+        .body {
+            background-color: #f6f6f6;
+            width: 100%;
+        }
+
+        .container1 {
+            margin: 0 auto;
+            max-width: 640px;
+            padding: 0;
+            padding-top: 24px;
+            width: 640px;
+        }
+
+        .imgg {
+            border: 5px solid yellow;
+        }
+
+        .content {
+            box-sizing: border-box;
+            display: block;
+            margin: 0 auto;
+            max-width: 640px;
+            padding: 0;
+        }
+
+        .wrapper {
+            box-sizing: border-box;
+            padding: 24px;
+        }
+
+
         .imagethankyou {
             width: 100%;
-            height:450px;
+            height: auto;
             object-fit: cover;
-            object-position: 100% 15%;
+            object-position: 100% 50%;
             padding-top: 10px;
             margin: auto;
             display: block;
@@ -47,6 +75,13 @@ set @subscriberKey = AttributeValue("ContactKey")
         }
 
         .container {
+            margin: 30px auto;
+            width: 50%;
+            align-items: center;
+            height: auto;
+        }
+
+        .container2 {
             margin: 30px auto;
             width: 50%;
             align-items: center;
@@ -66,9 +101,9 @@ set @subscriberKey = AttributeValue("ContactKey")
             text-align: center;
             margin-bottom: 50px;
         }
-        
-       
-       body {
+
+
+        body {
             font-size: 18px;
             color: black;
             font-family: 'Muli';
@@ -78,22 +113,11 @@ set @subscriberKey = AttributeValue("ContactKey")
             margin: 1rem;
         }
 
-        @media only screen and (max-width: 480px) {
-            .mobile-hidden {
-                display: none;
-            }
 
-            .responsive-td {
-                width: 100%;
-                display: block;
-                padding: 0px;
-            }
-        }
 
         input[type="radio"] {
             transform: scale(1.5);
             width: 40px;
-            margin-top: 6px;
         }
 
         .container {
@@ -103,21 +127,20 @@ set @subscriberKey = AttributeValue("ContactKey")
         }
 
         .m1 {
-                margin-top: 20px;
-    margin-bottom: 10px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            margin-left: 15%;
+            width: 100%;
         }
 
-        .m2 {
-            margin-right: 100px;
-            margin-left: 40px;
-        }
+        .m2 {}
 
         .m3 {
             margin-left: 40px;
         }
 
         label {
-            width: 400px;
+            width: 100%;
             display: inline-block;
             text-align: left;
             height: 35px;
@@ -128,10 +151,11 @@ set @subscriberKey = AttributeValue("ContactKey")
             margin: auto;
             padding-top: 15px;
             font-size: 22px;
+            text-align: center;
         }
 
         .qst3 {
-            width: 600px;
+            width: 100%;
             text-align: left;
             height: 35px;
         }
@@ -147,7 +171,7 @@ set @subscriberKey = AttributeValue("ContactKey")
             height: 30px;
         }
 
-        .successDisplay{
+        .successDisplay {
             display: none;
         }
 
@@ -162,305 +186,760 @@ set @subscriberKey = AttributeValue("ContactKey")
         fieldset {
             border: 0;
         }
-        .input-error{
+
+        .input-error {
             font-family: 'Muli';
+            text-align: center;
         }
+
         .sample-selector:not([disabled]) amp-img[option][selected]:not([disabled]) {
-  outline-color: var(--color-primary);
-  outline-width: 4px;
-}
-.sample-selector amp-img,
-.sample-selector .divider {
-  margin-right: var(--space-2);
-}
-/* disables build-in browser highlights */
-.sample-selector *:focus {
-  outline: none;
-}
-.sample-selector[disabled],
-.sample-selector [disabled] {
-  opacity: 0.5;
-}
-.sample-selector .divider {
-  border-right: 2px solid var(--color-primary);
-  height: 60px;
-}
-.radio-selector [option] {
-  display: flex;
-  align-items: center;
-}
-.sample-selector,
-.radio-selector,
-.sample-selector ~ div,
-.radio-selector ~ div {
-  padding: var(--space-2);
-}
-.sample-selector ~ button,
-.radio-selector ~ button {
-  margin: var(--space-2);
-}
+            outline-color: var(--color-primary);
+            outline-width: 4px;
+        }
 
-amp-selector [option][selected] {
-     outline: none;
-}
+        .sample-selector amp-img,
+        .sample-selector .divider {
+            margin-right: var(--space-2);
+        }
 
-#res1,#res2,#res3,#res4,#res5 {
-     outline: none;
-}
+        /* disables build-in browser highlights */
+        .sample-selector *:focus {
+            outline: none;
+        }
 
-amp-selector [option][selected] {
-     outline: none;
-}
+        .sample-selector[disabled],
+        .sample-selector [disabled] {
+            opacity: 0.5;
+        }
+
+        .sample-selector .divider {
+            border-right: 2px solid var(--color-primary);
+            height: 60px;
+        }
+
+        .radio-selector [option] {
+            display: flex;
+            align-items: center;
+        }
+
+        .sample-selector,
+        .radio-selector,
+        .sample-selector~div,
+        .radio-selector~div {
+            padding: var(--space-2);
+        }
+
+        .sample-selector~button,
+        .radio-selector~button {
+            margin: var(--space-2);
+        }
+
+        amp-selector [option][selected] {
+            outline: none;
+        }
+
+        #res2-1,
+        #res2-2,
+        #res2-3,
+        #res2-4,
+        #res2-5 {
+            outline: none;
+        }
+
+        amp-selector [option][selected] {
+            outline: none;
+        }
+
+
+
+        @media only screen and (max-width: 640px) {
+            h1 {
+                font-size: 36px;
+                margin-bottom: 16px;
+            }
+
+            h2 {
+                font-size: 28px;
+                margin-bottom: 8px;
+            }
+
+            h3 {
+                font-size: 22px;
+                margin-bottom: 8px;
+            }
+
+            .main p,
+            .main ul,
+            .main ol,
+            .main td,
+            .main span {
+                font-size: 16px;
+            }
+
+            .wrapper {
+                padding: 8px;
+            }
+
+            .article {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+            .content {
+                padding: 0;
+            }
+
+            .container1 {
+                padding: 0;
+                padding-top: 0px;
+                width: 100%;
+
+            }
+
+            .header {
+                margin-bottom: 8px;
+                margin-top: 0;
+            }
+
+            .main {
+                border-left-width: 0;
+                border-radius: 0;
+                border-right-width: 0;
+                border: 5px solid purple;
+                width: 100%;
+            }
+
+            .btn table {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .btn a {
+                font-size: 16px;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .img-responsive {
+                height: auto;
+                max-width: 100%;
+                width: auto;
+            }
+
+            .alert td {
+                border-radius: 0;
+                font-size: 16px;
+                padding-bottom: 16px;
+                padding-left: 8px;
+                padding-right: 8px;
+                padding-top: 16px;
+            }
+
+            .receipt,
+            .receipt-container {
+                width: 100%;
+            }
+
+            .hr tr:first-of-type td,
+            .hr tr:last-of-type td {
+                height: 16px;
+                line-height: 16px;
+            }
+
+            label {
+                font-size: 15px;
+                width: 100%;
+            }
+
+            .qst3 {
+                width: 100%;
+            }
+
+            .question {
+                margin: auto;
+                padding-top: 15px;
+                font-size: 15px;
+                text-align: center;
+            }
+
+            .m2 {
+                margin-right: 0px;
+                margin-left: 10%;
+            }
+
+            .m1 {
+                margin-left: 0%;
+            }
+
+            #divforlabels {
+                margin: 0px 10% 0px 0%;
+
+
+            }
+
+            .input-error {
+                font-size: 15px;
+                text-align: center;
+            }
+
+            .imagethankyou {
+                width: 100%;
+                height: auto;
+            }
+
+            .thankyoumessage {}
+
+            .firstdiv {
+                font-family: 'Muli';
+                margin-top: 30px;
+                text-align: left;
+            }
+
+            .seconddiv {
+                font-family: 'Muli';
+                margin-top: 30px;
+                text-align: left;
+
+            }
+
+            .container2 {
+                margin: 0px;
+                width: 100%;
+                align-items: center;
+                height: auto;
+            }
+
+        }
     </style>
 
 
 </head>
 
 <body>
-      
 
-    <table width="100%" cellspacing="0" cellpadding="0" role="presentation">
-        <tr>
-            <td [class]="currentPage" align="center">
-                <amp-img 
-                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/c9a545d3-44a2-4416-9a17-9b0a8764c43d.jpg"
-                    alt="" width="640" height="150"
-                    style="display: block; padding: 0px; text-align: center; border: 0px none transparent;">
-                </amp-img>
-            </td>
-        </tr>
-        <tr>
-            <td [class]="currentPage" align="center">
-                <amp-img height="762" width="640"
-                    style="display: block; padding: 0px; text-align: center;  border: 0px none transparent;"
-                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/7fa4c0fd-0b41-4666-8fc9-e65ebb6468aa.jpg">
-                </amp-img>
-            </td>
-        </tr>
-        <tr>
-            <td [class]="currentPage" align="center">
-                <amp-img height="77" width="640"
-                    style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px none transparent;"
-                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/cf83a198-a44f-4216-9ea8-7d4c8fa314d2.jpg">
-                </amp-img>
-            </td>
-        </tr>
-        <tr>
-            <td [class]="currentPage" align="center">
-                <div class="question">Did you hear about our new HD SKIN Foundation?</div>
-            </td>
-        </tr>
-        <tr>
-            <td [class]="currentPage" align="center">
-                <amp-img height="362" width="640"
-                    style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px none transparent;margin-top: 20px;"
-                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/ef9e7c6e-4ec3-482b-9846-274e4f95838c.jpg">
-                </amp-img>
-            </td>
-        </tr>
-        <tr>
-            <td align="center">
-                <div>
+    <amp-state id="ANSWERS">
+        <script type="application/json">
+          {
+            "Q2required": false,
+            "Q1ANSWER4" : false,
+            "Q1ANSWER2" : false,
+            "Q1ANSWER3" : false,
+            "Q1ANSWER1" : false,
+            "SelectedOptions" : 0,
+            "successClass": "defaultClass"
+          }
+        </script>
+    </amp-state>
 
-                    <form method="post" custom-validation-reporting="show-all-on-submit"
-                        on="submit-success: AMP.setState({currentPage: 'successDisplay'})"
-                        action-xhr="https://mc3z2jh3b-f5d8jhc0qz4lv-f-s1.pub.sfmc-content.com/jv2g5bkktkx">
-                        <div [class]="currentPage" class="m1">
-                            <span class="input-error" visible-when-invalid="valueMissing" validation-for="res1">
-                                Please select at least one answer.
-                            </span>
-                          <input name="ContactKey" type="hidden"
-        value="%%=v(@subscriberKey)=%%">
-                          
-                            <div class="inputbox"> 
-                                <label ><input class="form-control" type="radio" id="res1" data-question="1" name="Question1" value="Q1Answer1"
-                                    on="change:step2.hide" required>No, I never heard of it</label>
+    <table cellspacing="0" cellpadding="0" role="presentation" class="body">
+        <td>&nbsp;</td>
+        <tr>
+            <td class="container1">
+                <div class="content">
+                    <div class="wrapper">
+
+                        <div style="background-color: white">
+                            <div [class]="ANSWERS.successClass">
+                                <amp-img layout="responsive"
+                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/c9a545d3-44a2-4416-9a17-9b0a8764c43d.jpg"
+                                    alt="" width="640" height="150"
+                                    style="display: block; padding: 0px; text-align: center; border: 0px none transparent;">
+                                </amp-img>
                             </div>
-                            <div class="inputbox"> 
-                                <label ><input class="form-control" type="radio" id="res1" data-question="1" name="Question1" value="Q1Answer2"
-                                    on="change:step2.hide">Yes, and I would like to buy it</label>
+                            <div [class]="ANSWERS.successClass">
+                                <amp-img height="762" width="640" layout="responsive"
+                                    style="display: block; padding: 0px; text-align: center;  border: 0px none transparent;"
+                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/7fa4c0fd-0b41-4666-8fc9-e65ebb6468aa.jpg">
+                                </amp-img>
                             </div>
-                            <div class="inputbox"> 
-                                <label ><input class="form-control" type="radio" id="res1" data-question="1" name="Question1" value="Q1Answer3"
-                                    on="change:step2.hide">Yes, but I am still hesitating to buy it</label>
+
+                            <div [class]="ANSWERS.successClass">
+                                <amp-img height="77" width="640" layout="responsive"
+                                    style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px none transparent;"
+                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/cf83a198-a44f-4216-9ea8-7d4c8fa314d2.jpg">
+                                </amp-img>
                             </div>
-                            <div class="inputbox"> 
-                                <label ><input class="form-control" type="radio" id="res1" data-question="1" name="Question1" value="Q1Answer4"
-                                    on="change:step2.show">Yes, but I am not interested</label>
+
+                            <div [class]="ANSWERS.successClass">
+                                <div class="question">Did you hear about our new HD SKIN Foundation?</div>
                             </div>
-                        </div>
-                        <div [class]="currentPage" class="m2" id="step2" hidden>
-                            <div id="divforlabels">
-                                <label class="subinputbox" for="res5"><input type="radio" id="res5" data-question="1"
-                                        name="SubQuestion1" value="Q1Answer4-1">I prefer
-                                    Ultra HD
-                                    Foundation</label><br>
-                                <label class="subinputbox" for="res6"><input type="radio" id="res6" name="SubQuestion1"
-                                        value="Q1Answer4-2">I cannot find
-                                    my
-                                    shade</label><br>
-                                <label class="subinputbox" for="res7"><input type="radio" id="res7" name="SubQuestion1"
-                                        value="Q1Answer4-3">I do not see
-                                    the
-                                    benefits for
-                                    me</label><br>
-                                <label class="subinputbox" for="res8"><input type="radio" id="res8" name="SubQuestion1"
-                                        value="Q1Answer4-4">I bought my
-                                    foundation
-                                    somewhere
-                                    else</label><br>
+
+                            <div [class]="ANSWERS.successClass">
+                                <amp-img height="362" width="640" layout="responsive"
+                                    style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px none transparent;margin-top: 20px;"
+                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/ef9e7c6e-4ec3-482b-9846-274e4f95838c.jpg">
+                                </amp-img>
                             </div>
-                        </div>
-                        <div [class]="currentPage">
-                        <amp-img height="77" width="640"
-                            style="display: block; padding: 0px;margin-top: 20px;; text-align: center; border: 0px none transparent;"
-                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/8db4a407-cbb4-48c7-8c60-0193831fa571.jpg">
-                        </amp-img>
-                        </div>
-                        <div [class]="currentPage" class="question">What do you need to buy HD SKIN Foundation?</div>
-                        <div [class]="currentPage">
-                        <amp-img height="362" width="640"
-                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/13905949-5d97-470c-b6a8-f730bd0c74cf.jpg"
-                            style="display: block; padding: 0px;margin-top: 20px;; text-align: center; border: 0px none transparent;margin: 20px 0px;">
-                        </amp-img>
-                        </div>
-                        <div [class]="currentPage">
-                                <div><span class="input-error" visible-when-invalid="valueMissing" validation-for="res9">
-                                    Please select at least one answer.
-                                </span></div>
 
-                        <amp-selector layout="container" name="Question2" multiple>
-                            <label  class="qst3 customInput"><input style="display:none;width:100%" on="change:AMP.setState({checkStatusQ2A1: event.checked})" class="form-control" type="checkbox" id="res1"
-                                    data-question="2" option="Q2Answer1" ><input [checked]="checkStatusQ2A1" on="change:AMP.setState({checkStatusQ2A1: event.checked})" class="form-control" type="radio" id="res1"
-                                    data-question="2" option="Q2Answer1" >To
-                                know my
-                                shade</label><br>
+                            <div>
 
 
-                            <label  class="qst3 customInput"><input style="display:none;width:100%" on="change:AMP.setState({checkStatusQ2A2: event.checked})" class="form-control" type="checkbox" id="res2"
-                                    data-question="2" option="Q2Answer2"><input [checked]="checkStatusQ2A2" on="change:AMP.setState({checkStatusQ2A2: event.checked})" class="form-control" type="radio" id="res2"
-                                    data-question="2" option="Q2Answer2">More
-                                information
-                                on the product (benefits, formula…)</label><br>
+                                <form method="post" custom-validation-reporting="show-all-on-submit"
+                                    on="submit-success: AMP.setState({ANSWERS:{successClass:'successDisplay'}})"
+                                    action-xhr="https://mc3z2jh3b-f5d8jhc0qz4lv-f-s1.pub.sfmc-content.com/jv2g5bkktkx">
+                                    <div [class]="ANSWERS.successClass">
+                                        <table>
+                                            <tr>
+                                                <td>&nbsp;&nbsp;</td>
+                                                <td>
 
+                                                    <div class="m1">
+                                                        <label class="input-error" visible-when-invalid="valueMissing"
+                                                            validation-for="res1">
+                                                            Please select at least one answer.
+                                                        </label>
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    <input name="ContactKey" type="hidden"
+                                                                        value="%%=v(@subscriberKey)=%%">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="vertical-align: middle;">
 
-                            <label  class="qst3 customInput"><input style="display:none;width:100%"  on="change:AMP.setState({checkStatusQ2A3: event.checked})" class="form-control" type="checkbox" id="res3"
-                                    data-question="2" option="Q2Answer3"><input [checked]="checkStatusQ2A3" " class="form-control" type="radio" id="res3"
-                                    data-question="2" option="Q2Answer3">Tips from our
-                                makeup artists</label><br>
+                                                                    <label><input class="form-control" type="radio"
+                                                                            id="res1" data-question="1" name="Question1"
+                                                                            value="Q1Answer1"
+                                                                            on="change:step2.hide,AMP.setState({ANSWERS:{Q1ANSWER1: event.checked? event.checked:false, Q1ANSWER2: false,Q1ANSWER3:false,Q1ANSWER4:false, Q2required:event.checked?false:true}})"
+                                                                            required></label>
 
+                                                                </td>
+                                                                <td style="vertical-align: top;">
+                                                                    <label for="res1">
+                                                                        No, I never heard of it
+                                                                    </label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="vertical-align: middle;">
 
-                            <label  class="qst3 customInput"><input style="display:none;width:100%"  on="change:AMP.setState({checkStatusQ2A4: event.checked})" class="form-control" type="checkbox" id="res4"
-                                    data-question="2" option="Q2Answer4"><input [checked]="checkStatusQ2A4" class="form-control" type="radio" id="res4"
-                                    data-question="2" option="Q2Answer4">Reviews and
-                                feedbacks from customers and/or influencers</label><br>
+                                                                    <label><input class="form-control" type="radio"
+                                                                            id="res2" data-question="1" name="Question1"
+                                                                            value="Q1Answer2"
+                                                                            on="change:step2.hide,AMP.setState({ANSWERS:{Q1ANSWER2: event.checked? event.checked:false, Q1ANSWER1: false,Q1ANSWER3:false,Q1ANSWER4:false, Q2required:event.checked && SelectedOptions > 0 ?false:true}})"></label>
 
-                            <label  class="qst3 customInput"><input style="display:none;width:100%" on="change:AMP.setState({checkStatusQ2A5: event.checked})" class="form-control" type="checkbox" id="res5"
-                                    data-question="2" option="Q2Answer5"><input [checked]="checkStatusQ2A5" class="form-control" type="radio" id="res5"
-                                    data-question="2" option="Q2Answer5">A
-                                promotional
-                                offer</label><br>
-                            <label class="qst3"
-                                style="font-size: 18px;padding-left: 32px;padding-top: 10px;line-height: normal;">You
-                                can
-                                select up to 2 answers</label>
-                            </amp-selector>
+                                                                </td>
+                                                                <td style="vertical-align: top;">
+                                                                    <label for="res2">
+                                                                        Yes, and I would like to buy it
+                                                                    </label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="vertical-align: middle;">
 
-                        </div>
+                                                                    <label><input class="form-control" type="radio"
+                                                                            id="res3" data-question="1" name="Question1"
+                                                                            value="Q1Answer3"
+                                                                            on="change:step2.hide,AMP.setState({ANSWERS:{Q1ANSWER3: event.checked? event.checked:false, Q1ANSWER1: false,Q1ANSWER2:false,Q1ANSWER4:false, Q2required:event.checked  && SelectedOptions > 0 ?false:true}})"></label>
 
-                        <div [class]="currentPage" style="margin-top: 20px;margin-bottom: 50px;"><input type="submit" class="btnSubmit" value="SUBMIT"></div>
-                     
-                         <div submit-success>
-                            <template type="amp-mustache">
-                                <div class="container">
-                                    <div class="imagediv"><amp-img alt="thank you" width="512" height="582" src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/ebd0ddde-f7d0-4a88-81b6-e3c2b1d5ff76.jpg"
-                                            class="imagethankyou">
-                                            </amp-img>
-                                        </div>
-                                    <div class="firstdiv"><span>Thank you for your answers!</span><br>
-                                        <span>We take them into account and we will come back to you very soon with a surprise…</span>
+                                                                </td>
+                                                                <td style="vertical-align: top;">
+                                                                    <label for="res3">
+                                                                        Yes,
+                                                                        but I am still hesitating to buy it
+                                                                    </label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="vertical-align: middle;">
+
+                                                                    <label><input class="form-control" type="radio"
+                                                                            id="res4" data-question="1" name="Question1"
+                                                                            value="Q1Answer4"
+                                                                            on="change:step2.show,AMP.setState({ANSWERS:{Q1ANSWER4: event.checked? event.checked:false, Q1ANSWER2: false,Q1ANSWER1:false,Q1ANSWER3:false, Q2required:event.checked?false:true}})"></label>
+
+                                                                </td>
+                                                                <td style="vertical-align: top;">
+                                                                    <label for="res4">
+                                                                        Yes,
+                                                                        but I am not interested
+                                                                    </label>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                                <td>&nbsp;&nbsp;</td>
+                                            </tr>
+                                        </table>
+
                                     </div>
-                                    <div class="seconddiv"><span>To discover our latest news and offers, click <a
-                                                style="text-decoration: none;cursor: pointer;font-family: muli;color: black;"
-                                                href="https://www.makeupforever.com"><u>here.</u></a></span></div>
-                                </div>
-                            </template>
+                                    <div [class]="ANSWERS.successClass">
+                                        <div class="m2" id="step2" hidden>
+                                            <table width="100%">
+                                                <tr>
+
+                                                    <td style="width: 100%;">
+                                                        <div id="divforlabels">
+                                                            <table>
+                                                                <tr>
+                                                                    <td style="vertical-align: middle;">
+
+                                                                        <label class="subinputbox" for="res5"><input
+                                                                                type="radio" id="res5" data-question="1"
+                                                                                name="SubQuestion1"
+                                                                                value="Q1Answer4-1"></label>
+
+                                                                    </td>
+                                                                    <td style="vertical-align: top;">
+                                                                        <label for="res5">
+                                                                            I
+                                                                            prefer
+                                                                            Ultra HD
+                                                                            Foundation
+                                                                        </label>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="vertical-align: middle;">
+
+                                                                        <label class="subinputbox" for="res6"><input
+                                                                                type="radio" id="res6"
+                                                                                name="SubQuestion1" value="Q1Answer4-2">
+                                                                        </label>
+
+                                                                    </td>
+                                                                    <td style="vertical-align: top;">
+                                                                        <label for="res6">
+                                                                            I cannot
+                                                                            find
+                                                                            my
+                                                                            shade
+                                                                        </label>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="vertical-align: middle;">
+
+                                                                        <label class="subinputbox" for="res7"><input
+                                                                                type="radio" id="res7"
+                                                                                name="SubQuestion1"
+                                                                                value="Q1Answer4-3"></label>
+
+                                                                    </td>
+                                                                    <td style="vertical-align: top;">
+                                                                        <label for="res7">
+                                                                            I do not
+                                                                            see
+                                                                            the
+                                                                            benefits for
+                                                                            me
+                                                                        </label>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="vertical-align: middle;">
+
+                                                                        <label class="subinputbox" for="res8"><input
+                                                                                type="radio" id="res8"
+                                                                                name="SubQuestion1"
+                                                                                value="Q1Answer4-4"></label>
+
+                                                                    </td>
+                                                                    <td style="vertical-align: top;">
+                                                                        <label for="res8">
+                                                                            I bought
+                                                                            my
+                                                                            foundation
+                                                                            somewhere
+                                                                            else
+                                                                        </label>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                    <div [class]="ANSWERS.successClass">
+                                        <amp-img height="77" width="640" layout="responsive"
+                                            style="display: block; padding: 0px;margin-top: 20px;; text-align: center; border: 0px none transparent;"
+                                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/8db4a407-cbb4-48c7-8c60-0193831fa571.jpg">
+                                        </amp-img>
+                                    </div>
+                                    <div [class]="ANSWERS.successClass">
+                                        <div class="question">What do you need to buy HD SKIN
+                                            Foundation?</div>
+                                    </div>
+                                    <div [class]="ANSWERS.successClass">
+                                        <amp-img height="362" width="640" layout="responsive"
+                                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/13905949-5d97-470c-b6a8-f730bd0c74cf.jpg"
+                                            style="display: block; padding: 0px;margin-top: 20px;; text-align: center; border: 0px none transparent;margin: 20px 0px;">
+                                        </amp-img>
+                                    </div>
+                                    <div [class]="ANSWERS.successClass">
+
+                                        <div><label class="input-error" visible-when-invalid="valueMissing"
+                                                validation-for="res2-1">
+                                                Please select at least one answer.
+                                            </label></div>
+
+                                        <!-- Q2required: <span [text]="ANSWERS.Q2required">Q2required</span><br>
+                                Q1ANSWER1: <span [text]="ANSWERS.Q1ANSWER1">Q1ANSWER1</span><br>
+                                Q1ANSWER4: <span [text]="ANSWERS.Q1ANSWER4">Q1ANSWER4</span><br>
+                                options:<span [text]="ANSWERS.SelectedOptions">SelectedOptions</span>
+                                 -->
+                                        <table>
+
+                                            <tr>
+                                                <td>&nbsp;&nbsp;</td>
+                                                <td>
+                                                    <amp-selector layout="container" id="Question2" name="Question2"
+                                                        on="select:AMP.setState({ANSWERS:{Q2required: (event.selectedOptions.length == 0 && (ANSWERS.Q1ANSWER1 || ANSWERS.Q1ANSWER4)) || (event.selectedOptions.length > 0 && (ANSWERS.Q1ANSWER1 || ANSWERS.Q1ANSWER4 || ANSWERS.Q1ANSWER2 || ANSWERS.Q1ANSWER3)) ? false: true, SelectedOptions: event.selectedOptions.length}})"
+                                                        multiple>
+
+                                                        <table>
+                                                            <tr class="qst3 customInput">
+                                                                <td style="vertical-align: middle;">
+                                                                    <label><input [required]="ANSWERS.Q2required"
+                                                                            style="display:none;width:100%"
+                                                                            on="change:AMP.setState({checkStatusQ2A1: event.checked})"
+                                                                            class="form-control" type="checkbox"
+                                                                            id="res2-1" data-question="2"
+                                                                            option="Q2Answer1"><input
+                                                                            [checked]="checkStatusQ2A1"
+                                                                            on="change:AMP.setState({checkStatusQ2A1: event.checked})"
+                                                                            class="form-control" type="radio"
+                                                                            id="res2-1" data-question="2"
+                                                                            option="Q2Answer1">
+                                                                    </label>
+                                                                </td>
+                                                                <td style="vertical-align: top;">
+                                                                    <label for="res2-1">To
+                                                                        know my
+                                                                        shade</label>
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="qst3 customInput">
+                                                                <td style="vertical-align: middle;">
+                                                                    <label><input [required]="ANSWERS.Q2required"
+                                                                            style="display:none;width:100%"
+                                                                            on="change:AMP.setState({checkStatusQ2A2: event.checked})"
+                                                                            class="form-control" type="checkbox"
+                                                                            id="res2-2" data-question="2"
+                                                                            option="Q2Answer2"><input
+                                                                            [checked]="checkStatusQ2A2"
+                                                                            on="change:AMP.setState({checkStatusQ2A2: event.checked})"
+                                                                            class="form-control" type="radio"
+                                                                            id="res2-2" data-question="2"
+                                                                            option="Q2Answer2"></label>
+                                                                </td>
+                                                                <td style="vertical-align: top;">
+                                                                    <label for="res2-2">More
+                                                                        information
+                                                                        on the product (benefits, formula…)</label>
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="qst3 customInput">
+                                                                <td style="vertical-align: middle;">
+                                                                    <label><input [required]="ANSWERS.Q2required"
+                                                                            style="display:none;width:100%"
+                                                                            on="change:AMP.setState({checkStatusQ2A3: event.checked})"
+                                                                            class="form-control" type="checkbox"
+                                                                            id="res2-3" data-question="2"
+                                                                            option="Q2Answer3"><input
+                                                                            [checked]="checkStatusQ2A3"
+                                                                            class="form-control" type="radio"
+                                                                            id="res2-3" data-question="2"
+                                                                            option="Q2Answer3"></label>
+                                                                </td>
+                                                                <td style="vertical-align: top;">
+                                                                    <label for="res2-3">Tips from our
+                                                                        makeup artists</label>
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="qst3 customInput">
+                                                                <td style="vertical-align: middle;">
+                                                                    <label><input [required]="ANSWERS.Q2required"
+                                                                            style="display:none;width:100%"
+                                                                            on="change:AMP.setState({checkStatusQ2A4: event.checked})"
+                                                                            class="form-control" type="checkbox"
+                                                                            id="res2-4" data-question="2"
+                                                                            option="Q2Answer4"><input
+                                                                            [checked]="checkStatusQ2A4"
+                                                                            class="form-control" type="radio"
+                                                                            id="res2-4" data-question="2"
+                                                                            option="Q2Answer4"></label>
+                                                                </td>
+                                                                <td style="vertical-align: top;">
+                                                                    <label for="res2-4">Reviews and
+                                                                        feedbacks from customers and/or
+                                                                        influencers</label>
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="qst3 customInput">
+                                                                <td style="vertical-align: middle;">
+                                                                    <label><input [required]="ANSWERS.Q2required"
+                                                                            style="display:none;width:100%"
+                                                                            on="change:AMP.setState({checkStatusQ2A5: event.checked})"
+                                                                            class="form-control" type="checkbox"
+                                                                            id="res2-5" data-question="2"
+                                                                            option="Q2Answer5"><input
+                                                                            [checked]="checkStatusQ2A5"
+                                                                            class="form-control" type="radio"
+                                                                            id="res2-5" data-question="2"
+                                                                            option="Q2Answer5"></label>
+                                                                </td>
+                                                                <td style="vertical-align: top;">
+                                                                    <label for="res2-5">A
+                                                                        promotional
+                                                                        offer</label>
+
+                                                                </td>
+                                                            </tr>
+                                                          
+                                                        </table>
+
+
+                                                    </amp-selector>
+                                                </td>
+                                             
+                                                <td>&nbsp;&nbsp;</td>
+                                            </tr>
+
+                                        </table>
+
+
+                                    </div>
+
+                                    <div [class]="ANSWERS.successClass"
+                                        style="margin-top: 20px;padding-bottom: 40px;   text-align: center;">
+                                        <input type="submit" class="btnSubmit" value="SUBMIT">
+                                    </div>
+
+                                    <div submit-success>
+                                        <template type="amp-mustache">
+                                            <div class="container2">
+                                                <div class="imagediv">
+                                                    <amp-img alt="thank you" width="512" height="582"
+                                                        layout="responsive"
+                                                        src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/ebd0ddde-f7d0-4a88-81b6-e3c2b1d5ff76.jpg"
+                                                        class="imagethankyou">
+                                                    </amp-img>
+
+
+                                                </div>
+                                                <div class="thankyoumessage">
+                                                    <div class="firstdiv"><span>Thank you for your
+                                                            answers!</span><br>
+                                                        <span>We take them into account and we will come
+                                                            back to you very soon with a
+                                                            surprise…</span>
+                                                    </div>
+                                                    <div class="seconddiv"><span>To discover our latest news
+                                                            and offers, click <a
+                                                                style="text-decoration: none;cursor: pointer;font-family: muli;color: black;"
+                                                                href="https://www.makeupforever.com"><u>here.</u></a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div>
+                                    <div submit-error>
+                                        <template type="amp-mustache">
+                                            Please verify your answers
+                                        </template>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="footer">
+                                <table width="100%" cellspacing="0" cellpadding="0" bgcolor="#171717">
+                                    <tr>
+                                        <td>
+
+                                        <td><a href="https://www.makeupforever.com/eu/en/terms.html**TRACKING**"
+                                                target="_blank">
+                                                <amp-img layout="intrinsic"
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/33f71d2e-67da-45f8-af77-527f496c95cf.jpg"
+                                                    width="159" height="84" style="border: 0;" alt="Paiement"></amp-img>
+                                            </a></td>
+
+                                        <td><a href="https://www.makeupforever.com/eu/en/terms.html**TRACKING**"
+                                                target="_blank">
+                                                <amp-img layout="intrinsic"
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/0a182dde-2e63-4718-a1c5-28d29e84da7b.jpg"
+                                                    width="161" height="84" style="border: 0;" alt="échantillons">
+                                                </amp-img>
+                                            </a></td>
+                                        <td><a href="https://www.makeupforever.com/eu/en/terms.html**TRACKING**"
+                                                target="_blank">
+                                                <amp-img layout="intrinsic"
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/6c0bd053-8397-4003-91da-4f2c0170deaf.jpg"
+                                                    width="162" height="84" style="border: 0;" alt="échantillons">
+                                                </amp-img>
+                                            </a></td>
+                                        <td><a href="https://www.makeupforever.com/eu/en/contact**TRACKING**"
+                                                target="_blank">
+                                                <amp-img layout="intrinsic"
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/cf27156a-7798-44bb-8d22-c35afa586a13.jpg"
+                                                    width="158" height="84" style="border: 0;" alt="contacter nous*
+                                "></amp-img>
+                                            </a></td>
+
+
+                                    </tr>
+                                </table>
+                                <table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#171717"
+                                    align="center">
+                                    <tr>
+                                        <td width="65" align="center"><a href="https://www.instagram.com/makeupforever/"
+                                                target="_blank">
+                                                <amp-img layout="intrinsic"
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/68a31fcd-c424-4d47-b8a8-3ddf677d1d21.jpg"
+                                                    width="360" height="51" style="border: 0;" alt="instagram">
+                                                </amp-img>
+                                            </a></td>
+
+                                        <td width="65" align="center"><a
+                                                href="https://www.facebook.com/makeupforeverfrance" target="_blank">
+                                                <amp-img layout="intrinsic"
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/d0a27e8f-9deb-42eb-ba5b-73045b58f2c8.jpg"
+                                                    width="23" height="51" style="border: 0;" alt="Youtube"></amp-img>
+                                            </a></td>
+
+                                        <td width="65" align="center"><a
+                                                href="https://www.tiktok.com/@makeupforever?lang=fr" target="_blank">
+                                                <amp-img layout="intrinsic"
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/f1b3c440-3fba-4faf-9ca5-d861749c32e0.jpg"
+                                                    width="32" height="51" style="border: 0;" alt="Facebook"></amp-img>
+                                            </a></td>
+
+                                        <td width="65" align="center"><a href="https://www.youtube.com/makeupforever"
+                                                target="_blank">
+                                                <amp-img layout="intrinsic"
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/f9e22b83-9140-4fcb-93af-2850cf57fefe.jpg"
+                                                    width="225" height="51" style="border: 0;" alt="Facebook"></amp-img>
+                                            </a></td>
+                                    </tr>
+                                </table>
+
+                            </div>
                         </div>
-                        <div submit-error>
-                            <template type="amp-mustache">
-                                Please verify your answers
-                            </template>
-                        </div>
-                    </form>
+
+
+                    </div>
+
                 </div>
+
+
+
             </td>
         </tr>
-        <table width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#171717" align="center">
-            <tr>
-                <td><a href="https://www.makeupforever.com/eu/en/terms.html**TRACKING**" target="_blank">
-                        <amp-img
-                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/33f71d2e-67da-45f8-af77-527f496c95cf.jpg"
-                                 width="159" height="84" style="border: 0;" alt="Paiement"></amp-img>
-                    </a></td>
-
-                <td><a href="https://www.makeupforever.com/eu/en/terms.html**TRACKING**" target="_blank">
-                        <amp-img
-                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/0a182dde-2e63-4718-a1c5-28d29e84da7b.jpg"
-                            width="161" height="84" style="border: 0;" alt="échantillons">
-                    </a></td>
-
-                <td><a href="https://www.makeupforever.com/eu/en/terms.html**TRACKING**" target="_blank">
-                        <amp-img
-                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/6c0bd053-8397-4003-91da-4f2c0170deaf.jpg"
-                                 width="162" height="84" style="border: 0;" alt="échantillons"></amp-img>
-                    </a></td>
-
-                <td><a href="https://www.makeupforever.com/eu/en/contact**TRACKING**" target="_blank">
-                        <amp-img
-                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/cf27156a-7798-44bb-8d22-c35afa586a13.jpg"
-                            width="158" height="84" style="border: 0;" alt="contacter nous*
-        ">
-                    </a></td>
-            </tr>
-        </table>
-
-        <table width="640" cellspacing="0" cellpadding="0" border="0" bgcolor="#171717" align="center">
-            <tr>
-                <td width="65" align="center"><a href="https://www.instagram.com/makeupforever/" target="_blank">
-                        <amp-img
-                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/68a31fcd-c424-4d47-b8a8-3ddf677d1d21.jpg"
-                                 width="360" height="51" style="border: 0;" alt="instagram"></amp-img>
-                    </a></td>
-
-                <td width="65" align="center"><a href="https://www.facebook.com/makeupforeverfrance" target="_blank">
-                        <amp-img
-                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/d0a27e8f-9deb-42eb-ba5b-73045b58f2c8.jpg"
-                            width="23" height="51" style="border: 0;" alt="Youtube">
-                    </a></td>
-
-                <td width="65" align="center"><a href="https://www.tiktok.com/@makeupforever?lang=fr" target="_blank">
-                        <amp-img
-                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/f1b3c440-3fba-4faf-9ca5-d861749c32e0.jpg"
-                                 width="32" height="51" style="border: 0;" alt="Facebook"></amp-img>
-                    </a></td>
-
-                <td width="65" align="center"><a href="https://www.youtube.com/makeupforever" target="_blank">
-                        <amp-img
-                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/f9e22b83-9140-4fcb-93af-2850cf57fefe.jpg"
-                                 width="225" height="51" style="border: 0;" alt="Facebook"></amp-img>
-                    </a></td>
-            </tr>
-        </table>
+        <td>&nbsp;</td>
     </table>
- 
+
+
 
 </body>
 
 </html>
-
-
-
-
-
-
-
