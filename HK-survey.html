@@ -828,7 +828,7 @@ ENDIF
 
         function isSelected(elt) {
           setOrderAttributes(elt);
-          //disableOldInputMoreThan2();
+          disableOldInputMoreThan2();
           question4Unchecked();
           reviewError(elt);
         }
@@ -847,6 +847,7 @@ ENDIF
         }
 
         function disableOldInputMoreThan2() {
+
           var elt = $('input[data-order="0"][data-question="2"]')
           elt.prop('checked', false);
         }
