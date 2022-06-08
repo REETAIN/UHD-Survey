@@ -1,7 +1,7 @@
 <script runat="server">
   Platform.Load("core", "1.1");
   // initialisation des variables //
-  var ContactKey = Attribute.GetValue("_subscriberkey") || "TESTCONTACTKEY";
+  var ContactKey = Attribute.GetValue("_subscriberkey") || Request.GetQueryStringParameter("contactkey") ||"TESTCONTACTKEY";
   Write('<script>' + 'var ContactKey = "' + ContactKey + '";<\/script>');
 </script>
 %%[
@@ -828,7 +828,7 @@ ENDIF
 
         function isSelected(elt) {
           setOrderAttributes(elt);
-          disableOldInputMoreThan2();
+          //disableOldInputMoreThan2();
           question4Unchecked();
           reviewError(elt);
         }
