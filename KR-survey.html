@@ -17,6 +17,7 @@ set @row = row(@Q1rows, 1)
 set @question1Label = field(@row,"Label")
 set @question1LabelImage = field(@row,"LabelImage")
 set @HeroImage = field(@row,"HeroImage")
+set @question1Label2 = field(@row,"Label2")
 set @ErrorMsg1 = field(@row,"ErrorMsg")
 ENDIF
 
@@ -25,6 +26,7 @@ set @rowCount = rowcount(@Q2rows)
 IF @rowCount > 0 then
 set @row = row(@Q2rows, 1)
 set @question2Label = field(@row,"Label")
+set @question2Label2 = field(@row,"HeroImage")
 set @question2LabelImage = field(@row,"LabelImage")
 set @label2 = field(@row,"Label2")
 set @submitLabel = field(@row,"submitLabel")
@@ -537,7 +539,8 @@ ENDIF
         src="%%=v(@question1LabelImage)=%%">
       <div class="question">
         <div class="questionLabel">
-          <span>%%=v(@question1Label)=%%</span>
+          <span>%%=v(@question1Label)=%%</span><br>
+          <span>%%=v(@question1Label2)=%%</span>
         </div>
 
         <div>
@@ -658,7 +661,8 @@ ENDIF
             src="%%=v(@question2LabelImage)=%%">
           <div class="question">
             <div class="questionLabel">
-              <span>%%=v(@question2Label)=%%</span>
+              <span>%%=v(@question2Label)=%%</span><br>
+              <span>%%=v(@question2Label2)=%%</span>
             </div>
             <img height="362"
               src="https://image.probeauty.makeupforever.com/lib/fe8b1373776c0c7c72/m/2/c89101ac-c51c-4d36-a1ca-f675caf2869f.jpg"
