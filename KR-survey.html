@@ -711,7 +711,7 @@ ENDIF
                       </tr>
                     </table>
                     <div style="align-items: center;width: 100%;"><label class="qst3"
-                        style="font-size: 18px;padding-left: 32px;padding-top: 10px;line-height: normal!important;">%%=v(@label2)=%%</label>
+                        style="font-size: 18px;padding-left: 32px;padding-top: 10px;line-height: normal!important;color:#c8102e">%%=v(@label2)=%%</label>
                     </div>
                   </td>
                 </tr>
@@ -828,8 +828,13 @@ ENDIF
 
         function setOrderAttributes(elt) {
           if ($(':radio[data-question="2"]:checked').length < 3) {
+            var existingEltOrder2 = $('input[data-order="2"]');
+               if(existingEltOrder2.length > 0){
+                 existingEltOrder2.attr("data-order", 1);
+               }
             var len = $(':radio[data-question="2"]:checked').length;
             elt.target.setAttribute("data-order", len);
+            console.log($(':radio[data-question="2"]:checked').length);
           } else {
             var elt1 = $('input[data-order="1"]');
             elt1.attr("data-order", 0);
