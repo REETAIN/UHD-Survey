@@ -837,6 +837,7 @@ ENDIF
           if ($(':radio[data-question="2"]:checked').length < 3) {
             var len = $(':radio[data-question="2"]:checked').length;
             elt.target.setAttribute("data-order", len);
+            console.log($(':radio[data-question="2"]:checked').length);
           } else {
             var elt1 = $('input[data-order="1"]');
             elt1.attr("data-order", 0);
