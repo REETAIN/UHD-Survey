@@ -1,5 +1,156 @@
 %%[
 set @subscriberKey = AttributeValue("_subscriberkey")
+SET @QUESTION1ID = 'Question1'
+SET @QUESTION2ID = 'Question2'
+SET @LangageCode = 'FR'
+
+
+set @Q1rows = LookupRows('HDSKIN_QUESTIONS_1','QID', @QUESTION1ID, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q1rows)
+IF @rowCount > 0 then
+set @row = row(@Q1rows, 1)
+set @question1Label = field(@row,"Label")
+set @question1LabelImage = field(@row,"LabelImage")
+set @HeroImage = field(@row,"HeroImage")
+set @ErrorMsg1 = field(@row,"ErrorMsg")
+ENDIF
+
+set @Q2rows = LookupRows('HDSKIN_QUESTIONS_1','QID', @QUESTION2ID, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q2rows)
+IF @rowCount > 0 then
+set @row = row(@Q2rows, 1)
+set @question2Label = field(@row,"Label")
+set @question2LabelImage = field(@row,"LabelImage")
+set @label2 = field(@row,"Label2")
+set @submitLabel = field(@row,"submitLabel")
+set @ErrorMsg = field(@row,"ErrorMsg")
+ENDIF
+
+SET @Q1Answer1 = 'Q1Answer1'
+SET @Q1Answer2 = 'Q1Answer2'
+SET @Q1Answer3 = 'Q1Answer3'
+SET @Q1Answer4 = 'Q1Answer4'
+
+SET @Q1Answer4Sub1 = 'Q1Answer4-1'
+SET @Q1Answer4Sub2 = 'Q1Answer4-2'
+SET @Q1Answer4Sub3 = 'Q1Answer4-3'
+SET @Q1Answer4Sub4 = 'Q1Answer4-4'
+
+SET @Q2Answer1 = 'Q2Answer1'
+SET @Q2Answer2 = 'Q2Answer2'
+SET @Q2Answer3 = 'Q2Answer3'
+SET @Q2Answer4 = 'Q2Answer4'
+SET @Q2Answer5 = 'Q2Answer5'
+
+set @Q1Answer1rows = LookupRows('HDSKIN_ANSWERS_1','AID', @Q1Answer1, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q1Answer1rows)
+IF @rowCount > 0 then
+set @row = row(@Q1Answer1rows, 1)
+set @Q1Answer1 = field(@row,"Label")
+ENDIF
+
+set @Q1Answer2rows = LookupRows('HDSKIN_ANSWERS_1','AID', @Q1Answer2, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q1Answer2rows)
+IF @rowCount > 0 then
+set @row = row(@Q1Answer2rows, 1)
+set @Q1Answer2 = field(@row,"Label")
+ENDIF
+
+set @Q1Answer3rows = LookupRows('HDSKIN_ANSWERS_1','AID', @Q1Answer3, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q1Answer3rows)
+IF @rowCount > 0 then
+set @row = row(@Q1Answer3rows, 1)
+set @Q1Answer3 = field(@row,"Label")
+ENDIF
+
+set @Q1Answer4rows = LookupRows('HDSKIN_ANSWERS_1','AID', @Q1Answer4, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q1Answer4rows)
+IF @rowCount > 0 then
+set @row = row(@Q1Answer4rows, 1)
+set @Q1Answer4 = field(@row,"Label")
+ENDIF
+
+set @Q1Answer4Sub1rows = LookupRows('HDSKIN_ANSWERS_1','AID', @Q1Answer4Sub1, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q1Answer4Sub1rows)
+IF @rowCount > 0 then
+set @row = row(@Q1Answer4Sub1rows, 1)
+set @Q1Answer4Sub1 = field(@row,"Label")
+ENDIF
+
+set @Q1Answer4Sub2rows = LookupRows('HDSKIN_ANSWERS_1','AID', @Q1Answer4Sub2, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q1Answer4Sub2rows)
+IF @rowCount > 0 then
+set @row = row(@Q1Answer4Sub2rows, 1)
+set @Q1Answer4Sub2 = field(@row,"Label")
+ENDIF
+
+set @Q1Answer4Sub3rows = LookupRows('HDSKIN_ANSWERS_1','AID', @Q1Answer4Sub3, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q1Answer4Sub3rows)
+IF @rowCount > 0 then
+set @row = row(@Q1Answer4Sub3rows, 1)
+set @Q1Answer4Sub3 = field(@row,"Label")
+ENDIF
+
+set @Q1Answer4Sub4rows = LookupRows('HDSKIN_ANSWERS_1','AID', @Q1Answer4Sub4, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q1Answer4Sub4rows)
+IF @rowCount > 0 then
+set @row = row(@Q1Answer4Sub4rows, 1)
+set @Q1Answer4Sub4 = field(@row,"Label")
+ENDIF
+
+set @Q1Answer4rows = LookupRows('HDSKIN_ANSWERS_1','AID', @Q1Answer4, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q1Answer4rows)
+IF @rowCount > 0 then
+set @row = row(@Q1Answer4rows, 1)
+set @Q1Answer4 = field(@row,"Label")
+ENDIF
+
+set @Q2Answer1rows = LookupRows('HDSKIN_ANSWERS_1','AID', @Q2Answer1, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q2Answer1rows)
+IF @rowCount > 0 then
+set @row = row(@Q2Answer1rows, 1)
+set @Q2Answer1 = field(@row,"Label")
+ENDIF
+
+set @Q2Answer2rows = LookupRows('HDSKIN_ANSWERS_1','AID', @Q2Answer2, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q2Answer2rows)
+IF @rowCount > 0 then
+set @row = row(@Q2Answer2rows, 1)
+set @Q2Answer2 = field(@row,"Label")
+ENDIF
+
+set @Q2Answer3rows = LookupRows('HDSKIN_ANSWERS_1','AID', @Q2Answer3, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q2Answer3rows)
+IF @rowCount > 0 then
+set @row = row(@Q2Answer3rows, 1)
+set @Q2Answer3 = field(@row,"Label")
+ENDIF
+
+set @Q2Answer4rows = LookupRows('HDSKIN_ANSWERS_1','AID', @Q2Answer4, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q2Answer4rows)
+IF @rowCount > 0 then
+set @row = row(@Q2Answer4rows, 1)
+set @Q2Answer4 = field(@row,"Label")
+ENDIF
+
+set @Q2Answer5rows = LookupRows('HDSKIN_ANSWERS_1','AID', @Q2Answer5, 'LangageCode', @LangageCode)
+set @rowCount = rowcount(@Q2Answer5rows)
+IF @rowCount > 0 then
+set @row = row(@Q2Answer5rows, 1)
+set @Q2Answer5 = field(@row,"Label")
+ENDIF
+
+set @tyrows = LookupRows('HDSKIN_THANK_YOU','LanguageCode', @LangageCode)
+set @rowCount = rowcount(@tyrows)
+IF @rowCount > 0 then
+set @row = row(@tyrows, 1)
+set @labelty1 = field(@row,"Label1")
+set @labelty2 = field(@row,"Label2")
+set @labelty3 = field(@row,"label3")
+set @url = field(@row,"URL")
+set @labelUrl = field(@row,"labelURL")
+
+ENDIF
 ]%%
 <!-- {{={< >}=}} -->
 <!doctype html>
@@ -10,6 +161,7 @@ set @subscriberKey = AttributeValue("_subscriberkey")
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
     <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+        <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
     <style amp4email-boilerplate>
@@ -41,7 +193,7 @@ set @subscriberKey = AttributeValue("_subscriberkey")
             margin: 0 auto;
             max-width: 640px;
             padding: 0;
-            padding-top: 24px;
+            padding-top: 0px;
             width: 640px;
         }
 
@@ -59,7 +211,10 @@ set @subscriberKey = AttributeValue("_subscriberkey")
 
         .wrapper {
             box-sizing: border-box;
-            padding: 24px;
+            padding-top: 0px;
+                   padding-left: 24px;
+          padding-right: 24px;
+          padding-bottom: 24px;
         }
 
 
@@ -67,7 +222,7 @@ set @subscriberKey = AttributeValue("_subscriberkey")
             width: 100%;
             height: auto;
             object-fit: cover;
-            object-position: 100% 50%;
+            object-position: 100% 10%;
             padding-top: 10px;
             margin: auto;
             display: block;
@@ -117,7 +272,7 @@ set @subscriberKey = AttributeValue("_subscriberkey")
 
         input[type="radio"] {
             transform: scale(1.5);
-            width: 40px;
+            width: 20px;
         }
 
         .container {
@@ -150,7 +305,7 @@ set @subscriberKey = AttributeValue("_subscriberkey")
         .question {
             margin: auto;
             padding-top: 15px;
-            font-size: 22px;
+            font-size: 18px;
             text-align: center;
         }
 
@@ -382,10 +537,7 @@ set @subscriberKey = AttributeValue("_subscriberkey")
                 text-align: center;
             }
 
-            .imagethankyou {
-                width: 100%;
-                height: auto;
-            }
+            .imagethankyou {}
 
             .thankyoumessage {}
 
@@ -410,26 +562,55 @@ set @subscriberKey = AttributeValue("_subscriberkey")
             }
 
         }
+        .resHideTY{
+       display:none;
+     }
+
+     .resHideForm{
+       display:none;
+     }
+
+     .resShowForm{
+       display:block;
+     }
+
+      .resShowTY{
+       display:block;
+     }
     </style>
 
 
 </head>
 
 <body>
+  <amp-state id="ANSWERS">
+      <script type="application/json">
+        {
+          "Q2required": false,
+          "Q1ANSWER4" : false,
+          "Q1ANSWER2" : false,
+          "Q1ANSWER3" : false,
+          "Q1ANSWER1" : false,
+          "checkStatusQ2A1": false,
+          "checkStatusQ2A2": false,
+          "checkStatusQ2A3":false,
+          "checkStatusQ2A4":false,
+          "SelectedOptions" : 0,
+          "Q2AnswerOrder1" : 0,
+          "Q2AnswerOrder2" : 0,
+          "successClass": "defaultClass"
+        }
+      </script>
+  </amp-state>
+  <amp-list src="https://mc3z2jh3b-f5d8jhc0qz4lv-f-s1.pub.sfmc-content.com/2gniymiswr2?action=hasAnswered&ContactKey=%%=v(@subscriberKey)=%%"
+        id="destinations"
+        binding="always"
+        width="700"
+        height="1200"
+        layout="container">
+<amp-img src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/eb977612-79d9-4771-a19f-b2f93304bd6f.png" width="1071" height="1" layout="responsive"></amp-img>
 
-    <amp-state id="ANSWERS">
-        <script type="application/json">
-          {
-            "Q2required": false,
-            "Q1ANSWER4" : false,
-            "Q1ANSWER2" : false,
-            "Q1ANSWER3" : false,
-            "Q1ANSWER1" : false,
-            "SelectedOptions" : 0,
-            "successClass": "defaultClass"
-          }
-        </script>
-    </amp-state>
+ <template type="amp-mustache">
 
     <table cellspacing="0" cellpadding="0" role="presentation" class="body">
         <td>&nbsp;</td>
@@ -438,490 +619,716 @@ set @subscriberKey = AttributeValue("_subscriberkey")
                 <div class="content">
                     <div class="wrapper">
 
+                      <!-- TY -->
+                      <div class="container2 {{resThankyouClass}}">
+                          <div class="imagediv">
+                              <amp-img alt="thank you" width="1071" height="766" layout="responsive"
+                                  src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/ba35d3c6-05b9-4f3c-b003-0f4bcb20825e.jpg"
+                                  class="imagethankyou">
+                              </amp-img>
+
+
+                          </div>
+                          <div class="thankyoumessage">
+                              <div class="firstdiv"><span>%%=v(@labelty1)=%%</span><br>
+                                  <span>%%=v(@labelty2)=%%</span>
+                              </div>
+                              <div class="seconddiv"><span>%%=v(@labelty3)=%%<a
+                                          style="text-decoration: none;cursor: pointer;font-family: muli;color: black;"
+                                          href="%%=RedirectTo(@url)=%%"><u>%%=v(@labelURL)=%%</u></a></span>
+                              </div>
+                          </div>
+                      </div>
+
+                      <!-- TY -->
+
                         <div style="background-color: white">
+                            <div class="{{resFormClass}}">
                             <div [class]="ANSWERS.successClass">
-                                <amp-img layout="responsive"
-                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/c9a545d3-44a2-4416-9a17-9b0a8764c43d.jpg"
-                                    alt="" width="640" height="150"
-                                    style="display: block; padding: 0px; text-align: center; border: 0px none transparent;">
-                                </amp-img>
+
+                                <div>
+                                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                        <tr>
+                                            <td height="54" align="center"><span
+                                                    style="font-family: Arial; font-size: 10px; color: #666666;">Votre
+                                                    avis en deux questions rapides.<br>Cet email ne s’affiche pas
+                                                    correctement ? Vous pouvez le visualiser en ligne grâce à <a
+                                                        data-linkto="other" href="%%view_email_url%%"
+                                                        style="color:#000000;text-decoration:underline;font-size: 10px; text-align: center;"
+                                                        title="">ce lien</a></span></td>
+                                        </tr>
+                                    </table>
+                                    <table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="">
+                                        <tr>
+                                            <td align="center"><a href="https://www.makeupforever.com/fr/fr**TRACKING**"
+                                                    target="_blank">
+                                                    <amp-img layout="responsive"
+                                                        src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/c9a545d3-44a2-4416-9a17-9b0a8764c43d.jpg"
+                                                        width="640" height="136" style="border: 0;"
+                                                        alt="Make Up For Ever"></amp-img>
+                                                </a></td>
+                                        </tr>
+                                    </table>
+                                    <table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+                                        <tr>
+                                            <td><a href="https://www.makeupforever.com/fr/fr/teint**TRACKING**"
+                                                    target="_blank">
+                                                    <amp-img layout="intrinsic"
+                                                        src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/a5910eef-d6be-42f8-ba80-7e13d0867d9f.jpg"
+                                                        width="199" height="35" style="border: 0;" alt="Teint">
+                                                    </amp-img>
+                                                </a></td>
+                                            <td><a href="https://www.makeupforever.com/fr/fr/yeux**TRACKING**"
+                                                    target="_blank">
+                                                    <amp-img layout="intrinsic"
+                                                        src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/da15563f-c744-48fc-8a46-453a52097bd6.jpg"
+                                                        width="93" height="35" style="border: 0;" alt="Yeux"></amp-img>
+                                                </a></td>
+                                            <td><a href="https://www.makeupforever.com/fr/fr/levres**TRACKING**"
+                                                    target="_blank">
+                                                    <amp-img layout="intrinsic"
+                                                        src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/f390a2d0-ef98-42c9-976a-4e306d273223.jpg"
+                                                        width="105" height="35" style="border: 0;" alt="Lèvres">
+                                                    </amp-img>
+                                                </a></td>
+                                            <td><a href="https://www.makeupforever.com/fr/fr/la-marque.html**TRACKING**"
+                                                    target="_blank">
+                                                    <amp-img layout="intrinsic"
+                                                        src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/0287cdfb-ce13-4bc2-9141-c3ac9a4b0ffe.jpg"
+                                                        width="190" height="35" style="border: 0;" alt="La marque">
+                                                    </amp-img>
+                                                </a></td>
+
+                                        </tr>
+                                    </table>
+
+                                </div>
                             </div>
+                            </div>
+
+                            <div class="{{resFormClass}}">
                             <div [class]="ANSWERS.successClass">
                                 <amp-img height="762" width="640" layout="responsive"
                                     style="display: block; padding: 0px; text-align: center;  border: 0px none transparent;"
-                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/7fa4c0fd-0b41-4666-8fc9-e65ebb6468aa.jpg">
+                                    src="%%=v(@HeroImage)=%%">
                                 </amp-img>
                             </div>
+                            </div>
 
+                            <div class="{{resFormClass}}">
                             <div [class]="ANSWERS.successClass">
                                 <amp-img height="77" width="640" layout="responsive"
                                     style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px none transparent;"
-                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/cf83a198-a44f-4216-9ea8-7d4c8fa314d2.jpg">
+                                    src="%%=v(@question1LabelImage)=%%">
                                 </amp-img>
                             </div>
-
-                            <div [class]="ANSWERS.successClass">
-                                <div class="question">Did you hear about our new HD SKIN Foundation?</div>
                             </div>
 
+                            <div class="{{resFormClass}}">
+                            <div [class]="ANSWERS.successClass">
+                                <div class="question">%%=v(@question1Label)=%%</div>
+                            </div>
+                            </div>
+
+                            <div class="{{resFormClass}}">
                             <div [class]="ANSWERS.successClass">
                                 <amp-img height="362" width="640" layout="responsive"
                                     style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px none transparent;margin-top: 20px;"
-                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/ef9e7c6e-4ec3-482b-9846-274e4f95838c.jpg">
+                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/6ca7c73f-aba0-4791-9b86-5168f917c7e8.jpg">
                                 </amp-img>
                             </div>
+                          </div>
 
-                            <div>
 
 
-                                <form method="post" custom-validation-reporting="show-all-on-submit"
-                                    on="submit-success: AMP.setState({ANSWERS:{successClass:'successDisplay'}})"
-                                    action-xhr="https://mc3z2jh3b-f5d8jhc0qz4lv-f-s1.pub.sfmc-content.com/jv2g5bkktkx">
-                                    <div [class]="ANSWERS.successClass">
-                                        <table>
+                            <form method="post" custom-validation-reporting="show-all-on-submit"
+                                on="submit-success: AMP.setState({ANSWERS:{successClass:'successDisplay'}})"
+                                action-xhr="https://mc3z2jh3b-f5d8jhc0qz4lv-f-s1.pub.sfmc-content.com/ba3zqh1zi2p">
+
+
+                                <div class="{{resFormClass}}">
+                                <div [class]="ANSWERS.successClass">
+                                    <table>
+                                        <tr>
+                                            <td>&nbsp;&nbsp;</td>
+                                            <td>
+
+                                                <div class="m1">
+                                                    <label class="input-error" visible-when-invalid="valueMissing"
+                                                        validation-for="res1">
+                                                        %%=v(@ErrorMsg1)=%%
+                                                    </label>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <input name="ContactKey" type="hidden"
+                                                                    value="%%=v(@subscriberKey)=%%">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="vertical-align: middle;">
+
+                                                                <label><input class="form-control" type="radio"
+                                                                        id="res1" data-question="1" name="Question1"
+                                                                        value="Q1Answer1"
+                                                                        on="change:step2.hide,AMP.setState({ANSWERS:{Q1ANSWER1: event.checked? event.checked:false, Q1ANSWER2: false,Q1ANSWER3:false,Q1ANSWER4:false, Q2required:event.checked?false:true}})"
+                                                                        required></label>
+
+                                                            </td>
+                                                            <td style="vertical-align: top;">
+                                                                <label for="res1">
+                                                                    %%=v(@Q1Answer1)=%%
+                                                                </label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="vertical-align: middle;">
+
+                                                                <label><input class="form-control" type="radio"
+                                                                        id="res2" data-question="1" name="Question1"
+                                                                        value="Q1Answer2"
+                                                                        on="change:step2.hide,AMP.setState({ANSWERS:{Q1ANSWER2: event.checked? event.checked:false, Q1ANSWER1: false,Q1ANSWER3:false,Q1ANSWER4:false, Q2required:event.checked && SelectedOptions > 0 ?false:true}})"></label>
+
+                                                            </td>
+                                                            <td style="vertical-align: top;">
+                                                                <label for="res2">
+                                                                    %%=v(@Q1Answer2)=%%
+                                                                </label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="vertical-align: middle;">
+
+                                                                <label><input class="form-control" type="radio"
+                                                                        id="res3" data-question="1" name="Question1"
+                                                                        value="Q1Answer3"
+                                                                        on="change:step2.hide,AMP.setState({ANSWERS:{Q1ANSWER3: event.checked? event.checked:false, Q1ANSWER1: false,Q1ANSWER2:false,Q1ANSWER4:false, Q2required:event.checked  && SelectedOptions > 0 ?false:true}})"></label>
+
+                                                            </td>
+                                                            <td style="vertical-align: top;">
+                                                                <label for="res3">
+                                                                    %%=v(@Q1Answer3)=%%
+                                                                </label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="vertical-align: middle;">
+
+                                                                <label><input class="form-control" type="radio"
+                                                                        id="res4" data-question="1" name="Question1"
+                                                                        value="Q1Answer4"
+                                                                        on="change:step2.show,AMP.setState({ANSWERS:{Q1ANSWER4: event.checked? event.checked:false, Q1ANSWER2: false,Q1ANSWER1:false,Q1ANSWER3:false, Q2required:event.checked?false:true}})"></label>
+
+                                                            </td>
+                                                            <td style="vertical-align: top;">
+                                                                <label for="res4">
+                                                                    %%=v(@Q1Answer4)=%%
+                                                                </label>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                            <td>&nbsp;&nbsp;</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                                </div>
+
+                                <div class="{{resFormClass}}">
+                                <div [class]="ANSWERS.successClass">
+                                    <div class="m2" id="step2" hidden>
+                                        <table width="100%">
                                             <tr>
-                                                <td>&nbsp;&nbsp;</td>
-                                                <td>
 
-                                                    <div class="m1">
-                                                        <label class="input-error" visible-when-invalid="valueMissing"
-                                                            validation-for="res1">
-                                                            Please select at least one answer.
-                                                        </label>
+                                                <td style="width: 100%;">
+                                                    <div id="divforlabels">
                                                         <table>
                                                             <tr>
-                                                                <td>
-                                                                    <input name="ContactKey" type="hidden"
-                                                                        value="%%=v(@subscriberKey)=%%">
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
                                                                 <td style="vertical-align: middle;">
 
-                                                                    <label><input class="form-control" type="radio"
-                                                                            id="res1" data-question="1" name="Question1"
-                                                                            value="Q1Answer1"
-                                                                            on="change:step2.hide,AMP.setState({ANSWERS:{Q1ANSWER1: event.checked? event.checked:false, Q1ANSWER2: false,Q1ANSWER3:false,Q1ANSWER4:false, Q2required:event.checked?false:true}})"
-                                                                            required></label>
+                                                                    <label class="subinputbox" for="res5"><input
+                                                                            type="radio" id="res5" data-question="1"
+                                                                            name="SubQuestion1"
+                                                                            value="Q1Answer4-1"></label>
 
                                                                 </td>
                                                                 <td style="vertical-align: top;">
-                                                                    <label for="res1">
-                                                                        No, I never heard of it
+                                                                    <label for="res5">
+                                                                        %%=v(@Q1Answer4Sub1)=%%
                                                                     </label>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="vertical-align: middle;">
 
-                                                                    <label><input class="form-control" type="radio"
-                                                                            id="res2" data-question="1" name="Question1"
-                                                                            value="Q1Answer2"
-                                                                            on="change:step2.hide,AMP.setState({ANSWERS:{Q1ANSWER2: event.checked? event.checked:false, Q1ANSWER1: false,Q1ANSWER3:false,Q1ANSWER4:false, Q2required:event.checked && SelectedOptions > 0 ?false:true}})"></label>
+                                                                    <label class="subinputbox" for="res6"><input
+                                                                            type="radio" id="res6" name="SubQuestion1"
+                                                                            value="Q1Answer4-2">
+                                                                    </label>
 
                                                                 </td>
                                                                 <td style="vertical-align: top;">
-                                                                    <label for="res2">
-                                                                        Yes, and I would like to buy it
+                                                                    <label for="res6">
+                                                                        %%=v(@Q1Answer4Sub2)=%%
                                                                     </label>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="vertical-align: middle;">
 
-                                                                    <label><input class="form-control" type="radio"
-                                                                            id="res3" data-question="1" name="Question1"
-                                                                            value="Q1Answer3"
-                                                                            on="change:step2.hide,AMP.setState({ANSWERS:{Q1ANSWER3: event.checked? event.checked:false, Q1ANSWER1: false,Q1ANSWER2:false,Q1ANSWER4:false, Q2required:event.checked  && SelectedOptions > 0 ?false:true}})"></label>
+                                                                    <label class="subinputbox" for="res7"><input
+                                                                            type="radio" id="res7" name="SubQuestion1"
+                                                                            value="Q1Answer4-3"></label>
 
                                                                 </td>
                                                                 <td style="vertical-align: top;">
-                                                                    <label for="res3">
-                                                                        Yes,
-                                                                        but I am still hesitating to buy it
+                                                                    <label for="res7">
+                                                                        %%=v(@Q1Answer4Sub3)=%%
                                                                     </label>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="vertical-align: middle;">
 
-                                                                    <label><input class="form-control" type="radio"
-                                                                            id="res4" data-question="1" name="Question1"
-                                                                            value="Q1Answer4"
-                                                                            on="change:step2.show,AMP.setState({ANSWERS:{Q1ANSWER4: event.checked? event.checked:false, Q1ANSWER2: false,Q1ANSWER1:false,Q1ANSWER3:false, Q2required:event.checked?false:true}})"></label>
+                                                                    <label class="subinputbox" for="res8"><input
+                                                                            type="radio" id="res8" name="SubQuestion1"
+                                                                            value="Q1Answer4-4"></label>
 
                                                                 </td>
                                                                 <td style="vertical-align: top;">
-                                                                    <label for="res4">
-                                                                        Yes,
-                                                                        but I am not interested
+                                                                    <label for="res8">
+                                                                        %%=v(@Q1Answer4Sub4)=%%
                                                                     </label>
                                                                 </td>
                                                             </tr>
                                                         </table>
                                                     </div>
                                                 </td>
-                                                <td>&nbsp;&nbsp;</td>
+
                                             </tr>
                                         </table>
 
                                     </div>
-                                    <div [class]="ANSWERS.successClass">
-                                        <div class="m2" id="step2" hidden>
-                                            <table width="100%">
-                                                <tr>
+                                </div>
+                                </div>
 
-                                                    <td style="width: 100%;">
-                                                        <div id="divforlabels">
-                                                            <table>
-                                                                <tr>
-                                                                    <td style="vertical-align: middle;">
+                                <div class="{{resFormClass}}">
+                                <div [class]="ANSWERS.successClass">
+                                    <amp-img height="77" width="640" layout="responsive"
+                                        style="display: block; padding: 0px;margin-top: 20px;; text-align: center; border: 0px none transparent;"
+                                        src="%%=v(@question2LabelImage)=%%">
+                                    </amp-img>
+                                </div>
+                              </div>
 
-                                                                        <label class="subinputbox" for="res5"><input
-                                                                                type="radio" id="res5" data-question="1"
-                                                                                name="SubQuestion1"
-                                                                                value="Q1Answer4-1"></label>
+                                <div class="{{resFormClass}}">
+                                <div [class]="ANSWERS.successClass">
+                                    <div class="question">%%=v(@question2Label)=%%</div>
+                                </div>
+                              </div>
 
-                                                                    </td>
-                                                                    <td style="vertical-align: top;">
-                                                                        <label for="res5">
-                                                                            I
-                                                                            prefer
-                                                                            Ultra HD
-                                                                            Foundation
-                                                                        </label>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="vertical-align: middle;">
+                                <div class="{{resFormClass}}">
+                                <div [class]="ANSWERS.successClass">
+                                    <amp-img height="362" width="640" layout="responsive"
+                                        src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/13905949-5d97-470c-b6a8-f730bd0c74cf.jpg"
+                                        style="display: block; padding: 0px;margin-top: 20px;; text-align: center; border: 0px none transparent;margin: 20px 0px;">
+                                    </amp-img>
+                                </div>
+                              </div>
 
-                                                                        <label class="subinputbox" for="res6"><input
-                                                                                type="radio" id="res6"
-                                                                                name="SubQuestion1" value="Q1Answer4-2">
-                                                                        </label>
+                                <div class="{{resFormClass}}">
+                                <div [class]="ANSWERS.successClass">
 
-                                                                    </td>
-                                                                    <td style="vertical-align: top;">
-                                                                        <label for="res6">
-                                                                            I cannot
-                                                                            find
-                                                                            my
-                                                                            shade
-                                                                        </label>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="vertical-align: middle;">
+                                    <div><label class="input-error" visible-when-invalid="valueMissing"
+                                            validation-for="res2-1">
+                                            %%=v(@ErrorMsg)=%%
+                                        </label></div>
 
-                                                                        <label class="subinputbox" for="res7"><input
-                                                                                type="radio" id="res7"
-                                                                                name="SubQuestion1"
-                                                                                value="Q1Answer4-3"></label>
-
-                                                                    </td>
-                                                                    <td style="vertical-align: top;">
-                                                                        <label for="res7">
-                                                                            I do not
-                                                                            see
-                                                                            the
-                                                                            benefits for
-                                                                            me
-                                                                        </label>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="vertical-align: middle;">
-
-                                                                        <label class="subinputbox" for="res8"><input
-                                                                                type="radio" id="res8"
-                                                                                name="SubQuestion1"
-                                                                                value="Q1Answer4-4"></label>
-
-                                                                    </td>
-                                                                    <td style="vertical-align: top;">
-                                                                        <label for="res8">
-                                                                            I bought
-                                                                            my
-                                                                            foundation
-                                                                            somewhere
-                                                                            else
-                                                                        </label>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </td>
-
-                                                </tr>
-                                            </table>
-
-                                        </div>
-                                    </div>
-                                    <div [class]="ANSWERS.successClass">
-                                        <amp-img height="77" width="640" layout="responsive"
-                                            style="display: block; padding: 0px;margin-top: 20px;; text-align: center; border: 0px none transparent;"
-                                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/8db4a407-cbb4-48c7-8c60-0193831fa571.jpg">
-                                        </amp-img>
-                                    </div>
-                                    <div [class]="ANSWERS.successClass">
-                                        <div class="question">What do you need to buy HD SKIN
-                                            Foundation?</div>
-                                    </div>
-                                    <div [class]="ANSWERS.successClass">
-                                        <amp-img height="362" width="640" layout="responsive"
-                                            src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/13905949-5d97-470c-b6a8-f730bd0c74cf.jpg"
-                                            style="display: block; padding: 0px;margin-top: 20px;; text-align: center; border: 0px none transparent;margin: 20px 0px;">
-                                        </amp-img>
-                                    </div>
-                                    <div [class]="ANSWERS.successClass">
-
-                                        <div><label class="input-error" visible-when-invalid="valueMissing"
-                                                validation-for="res2-1">
-                                                Please select at least one answer.
-                                            </label></div>
-
-                                        <!-- Q2required: <span [text]="ANSWERS.Q2required">Q2required</span><br>
+                                    <!-- Q2required: <span [text]="ANSWERS.Q2required">Q2required</span><br>
                                 Q1ANSWER1: <span [text]="ANSWERS.Q1ANSWER1">Q1ANSWER1</span><br>
                                 Q1ANSWER4: <span [text]="ANSWERS.Q1ANSWER4">Q1ANSWER4</span><br>
                                 options:<span [text]="ANSWERS.SelectedOptions">SelectedOptions</span>
                                  -->
-                                        <table>
+                                    <table>
 
-                                            <tr>
-                                                <td>&nbsp;&nbsp;</td>
-                                                <td>
-                                                    <amp-selector layout="container" id="Question2" name="Question2"
-                                                        on="select:AMP.setState({ANSWERS:{Q2required: (event.selectedOptions.length == 0 && (ANSWERS.Q1ANSWER1 || ANSWERS.Q1ANSWER4)) || (event.selectedOptions.length > 0 && (ANSWERS.Q1ANSWER1 || ANSWERS.Q1ANSWER4 || ANSWERS.Q1ANSWER2 || ANSWERS.Q1ANSWER3)) ? false: true, SelectedOptions: event.selectedOptions.length}})"
-                                                        multiple>
+                                        <tr>
+                                            <td>&nbsp;&nbsp;</td>
+                                            <td>
+                                                <amp-selector layout="container" id="Question2" name="Question2"
+                                                    on="select:AMP.setState({ANSWERS:{Q2required: (event.selectedOptions.length == 0 && (ANSWERS.Q1ANSWER1 || ANSWERS.Q1ANSWER4)) || (event.selectedOptions.length > 0 ) ? false: true, SelectedOptions: event.selectedOptions.length}})"
+                                                    multiple>
+                                                    <!-- <br>
+                                                    Q2AnswerOrder1 : <span [text]="ANSWERS.Q2AnswerOrder1">Q2AnswerOrder1</span><br><br>
+                                                    Q2AnswerOrder2 : <span [text]="ANSWERS.Q2AnswerOrder2">Q2AnswerOrder2</span><br><br>
+                                                   -->
+                                                    <table>
+                                                        <tr class="qst3 customInput">
+                                                            <td style="vertical-align: middle;">
+                                                                <label><input [required]="ANSWERS.Q2required"
+                                                                        style="display:none;width:100%"
+                                                                        class="form-control" type="checkbox" id="res2-1"
+                                                                        [checked]="event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer1'"
+                                                                        on="change:AMP.setState({ANSWERS:{
+                                                                          Q2AnswerOrder1: event.checked && ANSWERS.Q2AnswerOrder2 == 0? 'Q2Answer1' :
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? 'Q2Answer1':
+                                                                          ( ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder2:
+                                                                          (  ANSWERS.Q2AnswerOrder1 != 'Q2Answer1' &&  ANSWERS.Q2AnswerOrder2 == 'Q2Answer1'? ANSWERS.Q2AnswerOrder1:0  )))
+                                                                          ,Q2AnswerOrder2: event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 == 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1 : 0))
+                                                                          , checkStatusQ2A1: event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer1'? true:false
+                                                                          , checkStatusQ2A2: ANSWERS.Q2AnswerOrder1 == 'Q2Answer2' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer2'? true:false
+                                                                          , checkStatusQ2A3: ANSWERS.Q2AnswerOrder1 == 'Q2Answer3' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer3'? true:false
+                                                                          , checkStatusQ2A4: ANSWERS.Q2AnswerOrder1 == 'Q2Answer4' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer4'? true:false
+                                                                          , checkStatusQ2A5: ANSWERS.Q2AnswerOrder1 == 'Q2Answer5' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer5'? true:false}})"
 
-                                                        <table>
-                                                            <tr class="qst3 customInput">
-                                                                <td style="vertical-align: middle;">
-                                                                    <label><input [required]="ANSWERS.Q2required"
-                                                                            style="display:none;width:100%"
-                                                                            on="change:AMP.setState({checkStatusQ2A1: event.checked})"
-                                                                            class="form-control" type="checkbox"
-                                                                            id="res2-1" data-question="2"
-                                                                            option="Q2Answer1"><input
-                                                                            [checked]="checkStatusQ2A1"
-                                                                            on="change:AMP.setState({checkStatusQ2A1: event.checked})"
-                                                                            class="form-control" type="radio"
-                                                                            id="res2-1" data-question="2"
-                                                                            option="Q2Answer1">
-                                                                    </label>
-                                                                </td>
-                                                                <td style="vertical-align: top;">
-                                                                    <label for="res2-1">To
-                                                                        know my
-                                                                        shade</label>
+                                                                        data-question="2" option="Q2Answer1"><input
+                                                                        [checked]="event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer1'"
+                                                                        on="change:AMP.setState({ANSWERS:{
+                                                                          Q2AnswerOrder1: event.checked && ANSWERS.Q2AnswerOrder2 == 0? 'Q2Answer1' :
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? 'Q2Answer1':
+                                                                          ( ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder2:
+                                                                          (  ANSWERS.Q2AnswerOrder1 != 'Q2Answer1' &&  ANSWERS.Q2AnswerOrder2 == 'Q2Answer1'? ANSWERS.Q2AnswerOrder1:0  )))
+                                                                          ,Q2AnswerOrder2: event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 == 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1 : 0))
+                                                                          , checkStatusQ2A1: event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer1'? true:false
+                                                                          , checkStatusQ2A2: ANSWERS.Q2AnswerOrder1 == 'Q2Answer2' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer2'? true:false
+                                                                          , checkStatusQ2A3: ANSWERS.Q2AnswerOrder1 == 'Q2Answer3' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer3'? true:false
+                                                                          , checkStatusQ2A4: ANSWERS.Q2AnswerOrder1 == 'Q2Answer4' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer4'? true:false
+                                                                          , checkStatusQ2A5: ANSWERS.Q2AnswerOrder1 == 'Q2Answer5' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer5'? true:false}})"
 
-                                                                </td>
-                                                            </tr>
-                                                            <tr class="qst3 customInput">
-                                                                <td style="vertical-align: middle;">
-                                                                    <label><input [required]="ANSWERS.Q2required"
-                                                                            style="display:none;width:100%"
-                                                                            on="change:AMP.setState({checkStatusQ2A2: event.checked})"
-                                                                            class="form-control" type="checkbox"
-                                                                            id="res2-2" data-question="2"
-                                                                            option="Q2Answer2"><input
-                                                                            [checked]="checkStatusQ2A2"
-                                                                            on="change:AMP.setState({checkStatusQ2A2: event.checked})"
-                                                                            class="form-control" type="radio"
-                                                                            id="res2-2" data-question="2"
-                                                                            option="Q2Answer2"></label>
-                                                                </td>
-                                                                <td style="vertical-align: top;">
-                                                                    <label for="res2-2">More
-                                                                        information
-                                                                        on the product (benefits, formula…)</label>
+                                                                        class="form-control" type="radio" id="res2-1"
+                                                                        data-question="2" option="Q2Answer1">
+                                                                </label>
 
-                                                                </td>
-                                                            </tr>
-                                                            <tr class="qst3 customInput">
-                                                                <td style="vertical-align: middle;">
-                                                                    <label><input [required]="ANSWERS.Q2required"
-                                                                            style="display:none;width:100%"
-                                                                            on="change:AMP.setState({checkStatusQ2A3: event.checked})"
-                                                                            class="form-control" type="checkbox"
-                                                                            id="res2-3" data-question="2"
-                                                                            option="Q2Answer3"><input
-                                                                            [checked]="checkStatusQ2A3"
-                                                                            class="form-control" type="radio"
-                                                                            id="res2-3" data-question="2"
-                                                                            option="Q2Answer3"></label>
-                                                                </td>
-                                                                <td style="vertical-align: top;">
-                                                                    <label for="res2-3">Tips from our
-                                                                        makeup artists</label>
-
-                                                                </td>
-                                                            </tr>
-                                                            <tr class="qst3 customInput">
-                                                                <td style="vertical-align: middle;">
-                                                                    <label><input [required]="ANSWERS.Q2required"
-                                                                            style="display:none;width:100%"
-                                                                            on="change:AMP.setState({checkStatusQ2A4: event.checked})"
-                                                                            class="form-control" type="checkbox"
-                                                                            id="res2-4" data-question="2"
-                                                                            option="Q2Answer4"><input
-                                                                            [checked]="checkStatusQ2A4"
-                                                                            class="form-control" type="radio"
-                                                                            id="res2-4" data-question="2"
-                                                                            option="Q2Answer4"></label>
-                                                                </td>
-                                                                <td style="vertical-align: top;">
-                                                                    <label for="res2-4">Reviews and
-                                                                        feedbacks from customers and/or
-                                                                        influencers</label>
-
-                                                                </td>
-                                                            </tr>
-                                                            <tr class="qst3 customInput">
-                                                                <td style="vertical-align: middle;">
-                                                                    <label><input [required]="ANSWERS.Q2required"
-                                                                            style="display:none;width:100%"
-                                                                            on="change:AMP.setState({checkStatusQ2A5: event.checked})"
-                                                                            class="form-control" type="checkbox"
-                                                                            id="res2-5" data-question="2"
-                                                                            option="Q2Answer5"><input
-                                                                            [checked]="checkStatusQ2A5"
-                                                                            class="form-control" type="radio"
-                                                                            id="res2-5" data-question="2"
-                                                                            option="Q2Answer5"></label>
-                                                                </td>
-                                                                <td style="vertical-align: top;">
-                                                                    <label for="res2-5">A
-                                                                        promotional
-                                                                        offer</label>
-
-                                                                </td>
-                                                            </tr>
-                                                          
-                                                        </table>
+                                                                <!-- on="change:AMP.setState({checkStatusQ2A1: event.checked,ANSWERS:{Q2AnswerOrder1: event.checked && ANSWERS.Q2AnswerOrder2 == 0? 'Q2Answer1' : (event.checked && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder2: (!event.checked && ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder2: ( !event.checked && ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' &&  ANSWERS.Q2AnswerOrder2 == 0? 0:0  ))),Q2AnswerOrder2: event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 == 0? ANSWERS.Q2AnswerOrder1: (event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 != 0? 'Q2Answer1': (event.checked && ANSWERS.Q2AnswerOrder2 != 0? 'Q2Answer1' : 0))}})" -->
 
 
-                                                    </amp-selector>
-                                                </td>
-                                             
-                                                <td>&nbsp;&nbsp;</td>
-                                            </tr>
+                                                                <!-- on="change:AMP.setState({checkStatusQ2A1: event.checked,ANSWERS:{Q2AnswerOrder1: ANSWERS.Q2AnswerOrder1 == 0? 'Q2Answer1': (ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder2)},Q2AnswerOrder2: ANSWERS.Q2AnswerOrder1 != 0 ? 'Q2Answer1': 0}})" -->
 
-                                        </table>
+                                                            <!-- </td>   [checked]="checkStatusQ2A1 && (ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer1')? true:false" -->
+
+                                                            <td style="vertical-align: top;">
+                                                                <label for="res2-1">%%=v(@Q2Answer1)=%%</label>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="qst3 customInput">
+                                                            <td style="vertical-align: middle;">
+                                                                <label><input [required]="ANSWERS.Q2required"
+                                                                        style="display:none;width:100%"
+                                                                        on="change:AMP.setState({ANSWERS:{
+                                                                          Q2AnswerOrder1: event.checked && ANSWERS.Q2AnswerOrder2 == 0? 'Q2Answer2' :
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? 'Q2Answer2':
+                                                                          (ANSWERS.Q2AnswerOrder1 == 'Q2Answer2' && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder2:
+                                                                          (  ANSWERS.Q2AnswerOrder1 != 'Q2Answer2' &&  ANSWERS.Q2AnswerOrder2 == 'Q2Answer2'? ANSWERS.Q2AnswerOrder1:0  )))
+
+                                                                        ,Q2AnswerOrder2: event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 == 0? ANSWERS.Q2AnswerOrder1:
+                                                                        (event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1:
+                                                                        (event.checked && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1 : 0))
+
+                                                                        , checkStatusQ2A1: ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer1'? true:false
+                                                                        ,checkStatusQ2A2: event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer2' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer2'? true:false
+                                                                        , checkStatusQ2A3: ANSWERS.Q2AnswerOrder1 == 'Q2Answer3' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer3'? true:false
+                                                                        ,  checkStatusQ2A4: ANSWERS.Q2AnswerOrder1 == 'Q2Answer4' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer4'? true:false
+                                                                        , checkStatusQ2A5: ANSWERS.Q2AnswerOrder1 == 'Q2Answer5' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer5'? true:false}})"
+                                                                        [checked]="event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer2' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer2'"
+                                                                        class="form-control" type="checkbox" id="res2-2"
+                                                                        data-question="2" option="Q2Answer2"><input
+                                                                        [checked]="event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer2' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer2'"
+                                                                        on="change:AMP.setState({ANSWERS:{
+                                                                          Q2AnswerOrder1: event.checked && ANSWERS.Q2AnswerOrder2 == 0? 'Q2Answer2' :
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? 'Q2Answer2':
+                                                                          (ANSWERS.Q2AnswerOrder1 == 'Q2Answer2' && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder2:
+                                                                          (  ANSWERS.Q2AnswerOrder1 != 'Q2Answer2' &&  ANSWERS.Q2AnswerOrder2 == 'Q2Answer2'? ANSWERS.Q2AnswerOrder1:0  )))
+
+                                                                        ,Q2AnswerOrder2: event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 == 0? ANSWERS.Q2AnswerOrder1:
+                                                                        (event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1:
+                                                                        (event.checked && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1 : 0))
+
+                                                                        , checkStatusQ2A1: ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer1'? true:false
+                                                                        ,checkStatusQ2A2: event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer2' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer2'? true:false
+                                                                        , checkStatusQ2A3: ANSWERS.Q2AnswerOrder1 == 'Q2Answer3' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer3'? true:false
+                                                                        ,  checkStatusQ2A4: ANSWERS.Q2AnswerOrder1 == 'Q2Answer4' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer4'? true:false
+                                                                        , checkStatusQ2A5: ANSWERS.Q2AnswerOrder1 == 'Q2Answer5' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer5'? true:false}})"
+                                                                        class="form-control" type="radio" id="res2-2"
+                                                                        data-question="2" option="Q2Answer2"></label>
+                                                            </td>
+                                                            <td style="vertical-align: top;">
+                                                                <label for="res2-2">%%=v(@Q2Answer2)=%%</label>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="qst3 customInput">
+                                                            <td style="vertical-align: middle;">
+                                                                <label><input [required]="ANSWERS.Q2required"
+                                                                        style="display:none;width:100%"
+                                                                        on="change:AMP.setState({checkval: event.checked,ANSWERS:{
+                                                                          Q2AnswerOrder1: event.checked && ANSWERS.Q2AnswerOrder2 == 0? 'Q2Answer3' :
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? 'Q2Answer3':
+                                                                          ( ANSWERS.Q2AnswerOrder1 == 'Q2Answer3' && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder2:
+                                                                          ( ANSWERS.Q2AnswerOrder1 != 'Q2Answer3' &&  ANSWERS.Q2AnswerOrder2 == 'Q2Answer3'? ANSWERS.Q2AnswerOrder1:0  )))
+
+                                                                          ,Q2AnswerOrder2: event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 == 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1 : 0))
+
+                                                                          , checkStatusQ2A1: ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer1'? true:false
+                                                                          ,checkStatusQ2A2: ANSWERS.Q2AnswerOrder1 == 'Q2Answer2' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer2'? true:false
+                                                                          , checkStatusQ2A3: event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer3' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer3'? true:false
+                                                                          , checkStatusQ2A4: ANSWERS.Q2AnswerOrder1 == 'Q2Answer4' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer4'? true:false
+                                                                          , checkStatusQ2A5: ANSWERS.Q2AnswerOrder1 == 'Q2Answer5' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer5'? true:false}})"
 
 
-                                    </div>
+                                                                        class="form-control" type="checkbox" id="res2-3"
+                                                                        [checked]="event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer3' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer3'"
+                                                                        data-question="2" option="Q2Answer3">
+                                                                        <input
+                                                                        on="change:AMP.setState({checkval: event.checked,ANSWERS:{
+                                                                          Q2AnswerOrder1: event.checked && ANSWERS.Q2AnswerOrder2 == 0? 'Q2Answer3' :
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? 'Q2Answer3':
+                                                                          ( ANSWERS.Q2AnswerOrder1 == 'Q2Answer3' && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder2:
+                                                                          ( ANSWERS.Q2AnswerOrder1 != 'Q2Answer3' &&  ANSWERS.Q2AnswerOrder2 == 'Q2Answer3'? ANSWERS.Q2AnswerOrder1:0  )))
 
-                                    <div [class]="ANSWERS.successClass"
-                                        style="margin-top: 20px;padding-bottom: 40px;   text-align: center;">
-                                        <input type="submit" class="btnSubmit" value="SUBMIT">
-                                    </div>
+                                                                          ,Q2AnswerOrder2: event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 == 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1 : 0))
 
-                                    <div submit-success>
-                                        <template type="amp-mustache">
-                                            <div class="container2">
-                                                <div class="imagediv">
-                                                    <amp-img alt="thank you" width="512" height="582"
-                                                        layout="responsive"
-                                                        src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/ebd0ddde-f7d0-4a88-81b6-e3c2b1d5ff76.jpg"
-                                                        class="imagethankyou">
-                                                    </amp-img>
+                                                                          , checkStatusQ2A1: ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer1'? true:false
+                                                                          ,checkStatusQ2A2: ANSWERS.Q2AnswerOrder1 == 'Q2Answer2' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer2'? true:false
+                                                                          , checkStatusQ2A3: event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer3' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer3'? true:false
+                                                                          , checkStatusQ2A4: ANSWERS.Q2AnswerOrder1 == 'Q2Answer4' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer4'? true:false
+                                                                          , checkStatusQ2A5: ANSWERS.Q2AnswerOrder1 == 'Q2Answer5' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer5'? true:false}})"
 
 
+                                                                        [checked]="event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer3' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer3'" class="form-control"
+                                                                        type="radio" id="res2-3" data-question="2"
+                                                                        option="Q2Answer3">
+                                                                      </label>
+                                                            </td>
+                                                            <td style="vertical-align: top;">
+                                                                <label for="res2-3">%%=v(@Q2Answer3)=%%</label>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="qst3 customInput">
+                                                            <td style="vertical-align: middle;">
+                                                                <label><input [required]="ANSWERS.Q2required"
+                                                                        style="display:none;width:100%"
+                                                                        on="change:AMP.setState({ANSWERS:{
+                                                                          Q2AnswerOrder1: event.checked && ANSWERS.Q2AnswerOrder2 == 0? 'Q2Answer4' :
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? 'Q2Answer4':
+                                                                          (ANSWERS.Q2AnswerOrder1 == 'Q2Answer4' && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder2:
+                                                                          ( ANSWERS.Q2AnswerOrder1 != 'Q2Answer4' &&  ANSWERS.Q2AnswerOrder2 == 'Q2Answer4'? ANSWERS.Q2AnswerOrder1:0  )))
+
+                                                                          ,Q2AnswerOrder2: event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 == 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1 : 0))
+
+                                                                          , checkStatusQ2A1: ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer1'? true:false
+                                                                          ,checkStatusQ2A2: ANSWERS.Q2AnswerOrder1 == 'Q2Answer2' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer2'? true:false
+                                                                          , checkStatusQ2A3: ANSWERS.Q2AnswerOrder1 == 'Q2Answer3' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer3'? true:false
+                                                                          , checkStatusQ2A4: event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer4' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer4'? true:false
+                                                                          , checkStatusQ2A5: ANSWERS.Q2AnswerOrder1 == 'Q2Answer5' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer5'? true:false}})"
+                                                                        class="form-control" type="checkbox" id="res2-4"
+                                                                        [checked]="event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer4' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer4'"
+                                                                        data-question="2" option="Q2Answer4"><input
+                                                                        on="change:AMP.setState({ANSWERS:{
+                                                                          Q2AnswerOrder1: event.checked && ANSWERS.Q2AnswerOrder2 == 0? 'Q2Answer4' :
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? 'Q2Answer4':
+                                                                          (ANSWERS.Q2AnswerOrder1 == 'Q2Answer4' && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder2:
+                                                                          ( ANSWERS.Q2AnswerOrder1 != 'Q2Answer4' &&  ANSWERS.Q2AnswerOrder2 == 'Q2Answer4'? ANSWERS.Q2AnswerOrder1:0  )))
+
+                                                                          ,Q2AnswerOrder2: event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 == 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1 : 0))
+
+                                                                          , checkStatusQ2A1: ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer1'? true:false
+                                                                          ,checkStatusQ2A2: ANSWERS.Q2AnswerOrder1 == 'Q2Answer2' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer2'? true:false
+                                                                          , checkStatusQ2A3: ANSWERS.Q2AnswerOrder1 == 'Q2Answer3' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer3'? true:false
+                                                                          , checkStatusQ2A4: event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer4' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer4'? true:false
+                                                                          , checkStatusQ2A5: ANSWERS.Q2AnswerOrder1 == 'Q2Answer5' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer5'? true:false}})"
+                                                                        [checked]="event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer4' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer4'" class="form-control"
+                                                                        type="radio" id="res2-4" data-question="2"
+                                                                        option="Q2Answer4"></label>
+                                                            </td>
+                                                            <td style="vertical-align: top;">
+                                                                <label for="res2-4">%%=v(@Q2Answer4)=%%</label>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="qst3 customInput">
+                                                            <td style="vertical-align: middle;">
+                                                                <label><input [required]="ANSWERS.Q2required"
+                                                                        style="display:none;width:100%"
+                                                                        on="change:AMP.setState({ANSWERS:{
+                                                                          Q2AnswerOrder1: event.checked && ANSWERS.Q2AnswerOrder2 == 0? 'Q2Answer5' :
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? 'Q2Answer5':
+                                                                          ( ANSWERS.Q2AnswerOrder1 == 'Q2Answer5' && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder2:
+                                                                          (  ANSWERS.Q2AnswerOrder1 != 'Q2Answer5' &&  ANSWERS.Q2AnswerOrder2 == 'Q2Answer5'? ANSWERS.Q2AnswerOrder1:0  )))
+
+                                                                          ,Q2AnswerOrder2: event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 == 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1 : 0))
+
+                                                                          , checkStatusQ2A1: ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer1'? true:false,checkStatusQ2A2: ANSWERS.Q2AnswerOrder1 == 'Q2Answer2' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer2'? true:false, checkStatusQ2A3: ANSWERS.Q2AnswerOrder1 == 'Q2Answer3' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer3'? true:false
+                                                                          , checkStatusQ2A4: ANSWERS.Q2AnswerOrder1 == 'Q2Answer4' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer4'? true:false, checkStatusQ2A5: event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer5' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer5'? true:false}})"
+                                                                        class="form-control" type="checkbox" id="res2-5"
+                                                                        [checked]="event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer5' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer5'"
+                                                                        data-question="2" option="Q2Answer5"><input
+                                                                        on="change:AMP.setState({ANSWERS:{
+                                                                          Q2AnswerOrder1: event.checked && ANSWERS.Q2AnswerOrder2 == 0? 'Q2Answer5' :
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? 'Q2Answer5':
+                                                                          ( ANSWERS.Q2AnswerOrder1 == 'Q2Answer5' && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder2:
+                                                                          (  ANSWERS.Q2AnswerOrder1 != 'Q2Answer5' &&  ANSWERS.Q2AnswerOrder2 == 'Q2Answer5'? ANSWERS.Q2AnswerOrder1:0  )))
+
+                                                                          ,Q2AnswerOrder2: event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 == 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder1 != 0 && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1:
+                                                                          (event.checked && ANSWERS.Q2AnswerOrder2 != 0? ANSWERS.Q2AnswerOrder1 : 0))
+
+                                                                          , checkStatusQ2A1: ANSWERS.Q2AnswerOrder1 == 'Q2Answer1' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer1'? true:false,checkStatusQ2A2: ANSWERS.Q2AnswerOrder1 == 'Q2Answer2' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer2'? true:false, checkStatusQ2A3: ANSWERS.Q2AnswerOrder1 == 'Q2Answer3' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer3'? true:false
+                                                                          , checkStatusQ2A4: ANSWERS.Q2AnswerOrder1 == 'Q2Answer4' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer4'? true:false, checkStatusQ2A5: event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer5' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer5'? true:false}})"
+                                                                        [checked]="event.checked || ANSWERS.Q2AnswerOrder1 == 'Q2Answer5' || ANSWERS.Q2AnswerOrder2 == 'Q2Answer5'" class="form-control"
+                                                                        type="radio" id="res2-5" data-question="2"
+                                                                        option="Q2Answer5"></label>
+                                                            </td>
+                                                            <td style="vertical-align: top;">
+                                                                <label for="res2-5">%%=v(@Q2Answer5)=%%</label>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;
+                                                            </td>
+                                                            <td>
+                                                                <label>%%=v(@label2)=%%</label>
+                                                            </td>
+                                                        </tr>
+
+
+                                                    </table>
+
+
+                                                </amp-selector>
+                                            </td>
+
+                                            <td>&nbsp;&nbsp;</td>
+                                        </tr>
+
+                                    </table>
+
+
+                                </div>
+                              </div>
+
+                                <div class="{{resFormClass}}">
+                                <div [class]="ANSWERS.successClass"
+                                    style="margin-top: 20px;padding-bottom: 40px;   text-align: center;">
+                                    <input type="submit" class="btnSubmit" value="%%=v(@submitLabel)=%%">
+                                </div>
+                              </div>
+
+                                <div submit-success>
+                                    <!-- <template type="amp-mustache"> -->
+                                        <div class="container2">
+                                            <div class="imagediv">
+                                                <amp-img alt="thank you" width="1071" height="766" layout="responsive"
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/7/ba35d3c6-05b9-4f3c-b003-0f4bcb20825e.jpg"
+                                                    class="imagethankyou">
+                                                </amp-img>
+
+
+                                            </div>
+                                            <div class="thankyoumessage">
+                                                <div class="firstdiv"><span>%%=v(@labelty1)=%%</span><br>
+                                                    <span>%%=v(@labelty2)=%%</span>
                                                 </div>
-                                                <div class="thankyoumessage">
-                                                    <div class="firstdiv"><span>Thank you for your
-                                                            answers!</span><br>
-                                                        <span>We take them into account and we will come
-                                                            back to you very soon with a
-                                                            surprise…</span>
-                                                    </div>
-                                                    <div class="seconddiv"><span>To discover our latest news
-                                                            and offers, click <a
-                                                                style="text-decoration: none;cursor: pointer;font-family: muli;color: black;"
-                                                                href="https://www.makeupforever.com"><u>here.</u></a></span>
-                                                    </div>
+                                                <div class="seconddiv"><span>%%=v(@labelty3)=%%<a
+                                                            style="text-decoration: none;cursor: pointer;font-family: muli;color: black;"
+                                                            href="%%=RedirectTo(@url)=%%"><u>%%=v(@labelURL)=%%</u></a></span>
                                                 </div>
                                             </div>
-                                        </template>
-                                    </div>
-                                    <div submit-error>
-                                        <template type="amp-mustache">
-                                            Please verify your answers
-                                        </template>
-                                    </div>
-                                </form>
-                            </div>
+                                        </div>
+                                    <!-- </template> -->
+                                </div>
+                                <div submit-error>
+                                    <!-- <template type="amp-mustache"> -->
+                                        Please verify your answers
+                                    <!-- </template> -->
+                                </div>
+                            </form>
+
                             <div class="footer">
                                 <table width="100%" cellspacing="0" cellpadding="0" bgcolor="#171717">
                                     <tr>
-                                        <td>
-
-                                        <td><a href="https://www.makeupforever.com/eu/en/terms.html**TRACKING**"
+                                        <td><a href="https://www.makeupforever.com/fr/fr/conditions-generales-de-vente.html**TRACKING**"
                                                 target="_blank">
                                                 <amp-img layout="intrinsic"
-                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/33f71d2e-67da-45f8-af77-527f496c95cf.jpg"
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/1abbb541-98ab-4550-873b-5c91d2b72f2c.jpg"
                                                     width="159" height="84" style="border: 0;" alt="Paiement"></amp-img>
                                             </a></td>
 
-                                        <td><a href="https://www.makeupforever.com/eu/en/terms.html**TRACKING**"
+                                        <td><a href="https://www.makeupforever.com/fr/fr/conditions-generales-de-vente.html**TRACKING**"
                                                 target="_blank">
                                                 <amp-img layout="intrinsic"
-                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/0a182dde-2e63-4718-a1c5-28d29e84da7b.jpg"
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/1dc0a52a-f3d3-4c92-b6da-ba9f033226f6.jpg"
                                                     width="161" height="84" style="border: 0;" alt="échantillons">
                                                 </amp-img>
                                             </a></td>
-                                        <td><a href="https://www.makeupforever.com/eu/en/terms.html**TRACKING**"
+
+                                        <td><a href="https://www.makeupforever.com/fr/fr/conditions-generales-de-vente.html**TRACKING**"
                                                 target="_blank">
                                                 <amp-img layout="intrinsic"
-                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/6c0bd053-8397-4003-91da-4f2c0170deaf.jpg"
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/5d6ff28f-cc09-41ea-9b0f-c4066b0f234b.jpg"
                                                     width="162" height="84" style="border: 0;" alt="échantillons">
                                                 </amp-img>
                                             </a></td>
-                                        <td><a href="https://www.makeupforever.com/eu/en/contact**TRACKING**"
+
+                                        <td><a href="https://www.makeupforever.com/fr/fr/contact**TRACKING**"
                                                 target="_blank">
                                                 <amp-img layout="intrinsic"
-                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/cf27156a-7798-44bb-8d22-c35afa586a13.jpg"
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/7f1d523a-47ae-4cc8-950d-f3aaa07cd82b.jpg"
                                                     width="158" height="84" style="border: 0;" alt="contacter nous*
-                                "></amp-img>
+      "></amp-img>
                                             </a></td>
-
-
                                     </tr>
                                 </table>
-                                <table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#171717"
-                                    align="center">
+                                <table width="100%" cellspacing="0" cellpadding="0" bgcolor="black" align="center">
                                     <tr>
                                         <td width="65" align="center"><a href="https://www.instagram.com/makeupforever/"
                                                 target="_blank">
                                                 <amp-img layout="intrinsic"
-                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/68a31fcd-c424-4d47-b8a8-3ddf677d1d21.jpg"
-                                                    width="360" height="51" style="border: 0;" alt="instagram">
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/6e7487a0-dc33-40f1-9825-d3a88e659e89.jpg"
+                                                    width="365" height="51" style="border: 0;" alt="instagram">
                                                 </amp-img>
                                             </a></td>
 
                                         <td width="65" align="center"><a
                                                 href="https://www.facebook.com/makeupforeverfrance" target="_blank">
                                                 <amp-img layout="intrinsic"
-                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/d0a27e8f-9deb-42eb-ba5b-73045b58f2c8.jpg"
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/0be0e2d9-6289-4d3c-a339-f9ae62e5f7bc.jpg"
                                                     width="23" height="51" style="border: 0;" alt="Youtube"></amp-img>
                                             </a></td>
 
                                         <td width="65" align="center"><a
                                                 href="https://www.tiktok.com/@makeupforever?lang=fr" target="_blank">
                                                 <amp-img layout="intrinsic"
-                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/f1b3c440-3fba-4faf-9ca5-d861749c32e0.jpg"
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/b1f7c9bf-c6ca-4ae4-9187-5222aec48b60.jpg"
                                                     width="32" height="51" style="border: 0;" alt="Facebook"></amp-img>
                                             </a></td>
 
                                         <td width="65" align="center"><a href="https://www.youtube.com/makeupforever"
                                                 target="_blank">
                                                 <amp-img layout="intrinsic"
-                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/f9e22b83-9140-4fcb-93af-2850cf57fefe.jpg"
-                                                    width="225" height="51" style="border: 0;" alt="Facebook"></amp-img>
+                                                    src="https://image.probeauty.makeupforever.com/lib/fe8b13727c61007a77/m/6/d3fd3ee7-9a8a-4fe7-8cea-ce9897fdf7fa.jpg"
+                                                    width="220" height="51" style="border: 0;" alt="Facebook"></amp-img>
                                             </a></td>
                                     </tr>
                                 </table>
+
 
                             </div>
                         </div>
@@ -938,7 +1345,8 @@ set @subscriberKey = AttributeValue("_subscriberkey")
         <td>&nbsp;</td>
     </table>
 
-
+  </template>
+  </amp-list>
 
 </body>
 
